@@ -1,0 +1,78 @@
+@import '../node_modules/@angular/material/theming';
+
+@include mat-core();
+
+$tek-primary: (
+    50 : #e0eff6,
+    100 : #b3d8e8,
+    200 : #80bed9,
+    300 : #4da4ca,
+    400 : #2691be,
+    500 : #007db3,
+    600 : #0075ac,
+    700 : #006aa3,
+    800 : #00609a,
+    900 : #004d8b,
+    A100 : #b7daff,
+    A200 : #84c0ff,
+    A400 : #51a6ff,
+    A700 : #3799ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$tek-accent: (
+    50 : #f8fae6,
+    100 : #ecf3c1,
+    200 : #e0ec97,
+    300 : #d4e46d,
+    400 : #cade4e,
+    500 : #c1d82f,
+    600 : #bbd42a,
+    700 : #b3ce23,
+    800 : #abc81d,
+    900 : #9ebf12,
+    A100 : #fbffee,
+    A200 : #f1ffbb,
+    A400 : #e6ff88,
+    A700 : #e1ff6e,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$tek-theme-primary: mat-palette($tek-primary, 500);
+$tek-theme-accent:  mat-palette($tek-accent, 500);
+
+$tek-theme-warn:    mat-palette($mat-red);
+
+$tek-theme: mat-light-theme($tek-theme-primary, $tek-theme-accent, $tek-theme-warn);
+
+@include angular-material-theme($tek-theme);

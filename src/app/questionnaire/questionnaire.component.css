@@ -1,0 +1,43 @@
+.mat-card {
+    margin-top: 40px;
+}
+
+.mat-card-title {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 0;
+    padding: 5px;
+}
+
+.mat-card-subtitle {
+    font-size: 18px;
+    padding: 16px 0 5px;
+    margin: 0;
+}
+
+.mat-card-content {
+    margin: 0 16px 16px;
+}
+
+.mat-hint {
+    color: #f7931e;
+}
+
+.mat-raised-button {
+    float: right;
+    text-transform: uppercase;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 2px 0;
+  }
+  
+.radio-button {
+    margin: 2px;
+  }
+
+.radio-button-answer {
+    margin-bottom: 5px;
+}  

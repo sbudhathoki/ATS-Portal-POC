@@ -1,0 +1,26 @@
+img {
+float: left;
+max-width: 100%;
+height: auto;
+object-fit: contain; 
+margin: 0;
+padding: 3%;
+}
+
+.pageTitle {
+    float: left;
+    margin: 1%;
+    padding: 11% 2% 5% 2%; 
+    font-size: 2.2rem;
+    font-weight: bolder;
+    color: #021a32;
+}
+
+.row {
+    height: 15%;
+    background-color: #f8f9fa;
+}
+
+.container-fluid {
+    border-bottom: solid #021a32 3px;
+    }

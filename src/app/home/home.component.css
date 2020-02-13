@@ -1,0 +1,33 @@
+#pic1 {
+    max-width: 80%;
+    padding: 5%;
+    height: auto;
+    object-fit: contain;
+}
+
+#pic2 {
+    max-width: 50%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    right: 8%;
+    padding: 6%;
+}
+ 
+.jumbotron {
+    overflow: scroll;
+    height: 100vh;
+    margin-bottom: 0;
+}
+
+p {
+    font-size: 19px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.mat-raised-button {
+    padding: 5px 15px;
+    font-size: 16px;
+    text-transform: uppercase;
+}

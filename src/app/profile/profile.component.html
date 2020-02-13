@@ -1,0 +1,109 @@
+
+    <div class="container"
+        fxLayoutAlign="center">
+        
+        <mat-card>
+          <form class="form-horizontal" [formGroup]="profileForm" (ngSubmit)="onSubmit()" novalidate>  
+        <mat-card-title>Create Profile</mat-card-title>
+        <mat-card-subtitle>Company Information</mat-card-subtitle>  
+        <mat-card-content>
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Company Name</mat-label>
+            <input matInput formControlName="company" type="text" required>
+            <mat-error *ngFor="let validation of validationMessages.company">
+            <mat-error class="error-message" 
+                *ngIf="profileForm.get('company').hasError(validation.type) && (profileForm.get('company').dirty || profileForm.get('company').touched)">
+                {{validation.message}}
+            </mat-error>
+          </mat-error>
+        </mat-form-field>
+          <br>
+        <mat-form-field appearance="outline">
+          <mat-label>Industry</mat-label>
+          <mat-select formControlName="industry" required>
+            <mat-option *ngFor="let industry of industries" [value]="industry.value">
+              {{industry.viewValue}}
+            </mat-option>
+          </mat-select>  
+          <mat-error *ngFor="let validation of validationMessages.industry">
+          <mat-error class="error-message" 
+              *ngIf="profileForm.get('industry').hasError(validation.type) && (profileForm.get('industry').dirty || profileForm.get('industry').touched)">
+              {{validation.message}}
+          </mat-error>
+          </mat-error>
+        </mat-form-field>
+          <br>
+          <mat-divider [inset]="true"></mat-divider>
+          <br>
+          <mat-card-subtitle>Personal Information</mat-card-subtitle>    
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName" type="text" required>
+            <mat-error *ngFor="let validation of validationMessages.firstName">
+            <mat-error class="error-message" 
+                *ngIf="profileForm.get('firstName').hasError(validation.type) && (profileForm.get('firstName').dirty || profileForm.get('firstName').touched)">
+                {{validation.message}}
+            </mat-error>
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastName" type="text" required>
+            <mat-error *ngFor="let validation of validationMessages.lastName">
+            <mat-error class="error-message" 
+                *ngIf="profileForm.get('lastName').hasError(validation.type) && (profileForm.get('lastName').dirty || profileForm.get('lastName').touched)">
+                {{validation.message}}
+            </mat-error>
+          </mat-error>
+        </mat-form-field>
+          <br>
+          <mat-form-field appearance="outline">
+            <mat-label>Role</mat-label>
+            <mat-select formControlName="role" required>
+              <mat-option *ngFor="let role of roles" [value]="role.value">
+                {{role.viewValue}}
+              </mat-option>
+            </mat-select>  
+            <mat-error *ngFor="let validation of validationMessages.role">
+            <mat-error class="error-message" 
+                *ngIf="profileForm.get('role').hasError(validation.type) && (profileForm.get('role').dirty || profileForm.get('role').touched)">
+                {{validation.message}}
+            </mat-error>
+            </mat-error>
+          </mat-form-field>
+            <br>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" required>
+            <mat-error *ngFor="let validation of validationMessages.email">
+            <mat-error class="error-message" 
+                *ngIf="profileForm.get('email').hasError(validation.type) && (profileForm.get('email').dirty || profileForm.get('email').touched)">
+                {{validation.message}}
+            </mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Phone</mat-label>
+            <input matInput formControlName="phone" type="tel" required
+              mask="(000) 000-0000" prefix="+1" [showMaskTyped]="false">
+            <mat-error *ngFor="let validation of validationMessages.phone">
+            <mat-error class="error-message" 
+                *ngIf="profileForm.get('phone').hasError(validation.type) && (profileForm.get('phone').dirty || profileForm.get('phone').touched)">
+                {{validation.message}}
+            </mat-error>
+          </mat-error>
+        </mat-form-field>
+        
+      </mat-card-content>
+        <mat-card-actions>
+        <button mat-raised-button type="submit" color="primary" [disabled]="profileForm.invalid">Get Started</button>
+        </mat-card-actions>
+</form>
+
+       </mat-card>
+    </div>    
+   

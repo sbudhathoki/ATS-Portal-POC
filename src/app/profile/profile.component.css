@@ -1,0 +1,19 @@
+.mat-card {
+    margin-top: 40px;
+}
+
+.mat-raised-button {
+    float: right;
+    text-transform: uppercase;
+    
+  /* padding: 3px 16px; */
+} 
+
+.mat-form-field {
+    margin-left: 16px;
+}
+
+.mat-card-actions {
+    padding: 10px;
+    margin-bottom: 30px;
+}
