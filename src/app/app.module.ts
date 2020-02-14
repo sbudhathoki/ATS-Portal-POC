@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
-import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
+import { QuestionMasterComponent } from './question-master/question-master.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 //phone mask
@@ -19,6 +19,7 @@ import {
           MatProgressBarModule
         } from '@angular/material';
 import { ResultComponent } from './result/result.component';
+import { QuestionDetailComponent } from './question-detail/question-detail.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
 
@@ -26,11 +27,11 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
   declarations: [
     AppComponent,
     ProfileComponent,
-    QuestionnaireComponent,
+    QuestionMasterComponent,
     HeaderComponent,
     HomeComponent,
-    QuestionnaireComponent,
-    ResultComponent
+    ResultComponent,
+    QuestionDetailComponent
   ],
   imports: [
     BrowserModule,

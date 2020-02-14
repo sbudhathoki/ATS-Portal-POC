@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http'; //for web api, not currently 
   providedIn: 'root'
 })
 export class QuestionService {
-  questionId: number;
+  id = 1;
   answerList = [];
   apiUrl = 'http://localhost:4200' //for web api, not currently in use
 
@@ -16,6 +16,8 @@ export class QuestionService {
   qnProgress: number;
   
   // constructor(private http: HttpClient) {} //for web api, not currently in use
+
+
   
   questions = [
     { questionId: 1,
@@ -66,11 +68,44 @@ export class QuestionService {
   //   return this.http.get(this.apiUrl + '/questions');
   // }
 
-  record(answer) {
-    this.answerList.push({ question: this.questions[this.questionId].question, answer });
+  // record(answer) {
+  //   this.answerList.push({ question: this.questions[this.questionId].question, answer });
+  // }
+
+  // displayTimeElapsed() {
+  //   return Math.floor(this.seconds / 3600) + ':' + Math.floor(this.seconds / 60) + ':' + Math.floor(this.seconds % 60);  
+  // }
+
+
+  getQuestions(): Question[] {
+    return this.questions;
+  }
+  
+  get getQuestion(): Question {
+    return this.questions.filter(question => (question.questionId === this.id))[0];
   }
 
-  displayTimeElapsed() {
-    return Math.floor(this.seconds / 3600) + ':' + Math.floor(this.seconds / 60) + ':' + Math.floor(this.seconds % 60);
+  numberOfQuestions() {
+    return this.questions.length;
+  }
+
+  getQuestionId() {
+    return this.id;
+  }
+
+  setQuestionId(id: number) {
+    return this.id = id;
+  }
+
+  isThereAnotherQuestion(): boolean {
+    return this.id < this.numberOfQuestions();
+  } 
+
+  nextQuestion(): void {
+    this.id++;
+  }
+
+  prevQuestion(): void {
+    this.id--;
   }
 }

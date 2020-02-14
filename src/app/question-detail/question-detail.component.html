@@ -1,0 +1,35 @@
+<div class="container"
+        fxLayoutAlign="center"> 
+        <mat-card>   
+           <mat-card-header>
+               <mat-card-title>{{question?.categoryCode}}</mat-card-title>
+               <mat-card-subtitle>{{question?.questionId}}. {{question?.question}}</mat-card-subtitle>
+           </mat-card-header>
+        <mat-card-content>
+               
+        <!-- <form [formGroup]="questionForm" novalidate>formControlName="answer" -->
+            <mat-radio-group class="radio-group" >
+                    <ng-container *ngFor="let answer of question?.answers">
+                      <mat-radio-button class="radio-button-answer" [value]="answer">
+                        {{ answer.answer }}
+                      </mat-radio-button>
+                    </ng-container>
+                </mat-radio-group>
+            <!-- </form> -->
+        </mat-card-content>
+
+         <mat-card-actions>
+             <span *ngIf="question && question.questionId !== numberOfQuestions">
+                <button mat-raised-button type="button" (click)="nextQuestion()" color="primary">Next</button>
+             </span>
+
+             <span *ngIf="question && question.questionId !== 1">
+                <button mat-raised-button type="button" (click)="prevQuestion()" color="accent">Back</button>
+             </span>
+            
+            
+            
+         </mat-card-actions>
+      <!-- </div> -->
+    </mat-card>
+</div>    
