@@ -30,13 +30,5 @@ export class QuestionMasterComponent implements OnInit {
       this.questionService.seconds++;
     }, 1000);
   }
-
-  // onSubmit() {
-  //   this.formSubmitted = true;
-  //   this.questionForm.reset();
-  // }
-
-  // onValueChanges(): void {
-  //   this.questionForm.valueChanges.subscribe(value => console.log(value));
-  // }
+  
 }

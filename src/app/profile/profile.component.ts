@@ -84,7 +84,7 @@ export class ProfileComponent implements OnInit {
   onSubmit(): void {
     console.log(this.profileForm.value);
     if (this.profileForm.valid){
-      this.router.navigate(['/question']);
+      this.router.navigate(['/question/1']);
     }
   }
 }

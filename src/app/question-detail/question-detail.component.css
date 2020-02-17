@@ -41,3 +41,8 @@
 .radio-button-answer {
     margin-bottom: 5px;
 }  
+
+.mat-card-actions {
+    padding: 10px;
+    margin-bottom: 30px;
+}
