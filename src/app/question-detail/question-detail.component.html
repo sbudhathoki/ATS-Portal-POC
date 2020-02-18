@@ -1,4 +1,4 @@
-<div class="container"
+<!-- <div class="container"
         fxLayoutAlign="center">
         
         
@@ -18,10 +18,10 @@
            </mat-card-header>
 
         <mat-card-content>    
-        <form [formGroup]="questionForm" (ngSubmit)="onSubmit()" novalidate>
-            <mat-radio-group class="radio-group" formControlName="answer" name="answer" required>
+        <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+            <mat-radio-group class="radio-group" formControlName="answer" name="answer" (change)="radioChange($event.value)" required>
                     <div *ngFor="let answer of question?.answers; let i = index">
-                      <mat-radio-button class="radio-button-answer" [value]="answer.answerId" (change)="radioChange($event.value)" >
+                      <mat-radio-button class="radio-button-answer" [value]="answer.answerId">
                         {{ answer.answer }}
                       </mat-radio-button>
                     </div>
@@ -53,4 +53,28 @@
          </mat-card-actions>
       
     </mat-card>
-</div>    
+</div>     -->
+
+
+<form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+   <mat-card-title>{{question.category.category}}</mat-card-title>
+      <mat-card-subtitle>Question {{ question.questionId }} of {{ numberOfQuestions }}</mat-card-subtitle>
+   <ng-content></ng-content>
+ 
+   <div class="form-group">
+     <mat-radio-group formControlName="answer" name="answer" (change)="radioChange($event.value)"
+       (click)="question.selectedAnswer = answer">
+ 
+       <div *ngFor="let answer of question.answers">
+         <mat-radio-button class="answer" [value]="answer.answerId" disableRipple="true"
+           [checked]="question.selectedAnswer == answer"
+           [ngClass]="{'initial-state': initialState()}">
+           {{ answer.answer }}
+ 
+         </mat-radio-button>
+ 
+       </div>
+     </mat-radio-group>
+   </div>
+ </form>
+ 

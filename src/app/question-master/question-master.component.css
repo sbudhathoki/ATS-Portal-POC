@@ -1,0 +1,60 @@
+.mat-card {
+    margin-top: 40px;
+    flex-basis: 50em;
+}
+
+.mat-card-title {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 0;
+    padding: 5px;
+}
+
+.mat-card-subtitle {
+    font-size: 18px;
+    padding: 16px 0 5px;
+    margin: 0;
+}
+
+.mat-card-content {
+    margin: 0 16px 16px;
+}
+
+.mat-hint {
+    color: #f7931e;
+}
+
+.mat-raised-button.mat-button-base.mat-primary {
+    float: right;
+    text-transform: uppercase;
+}
+
+.mat-raised-button.mat-button-base.mat-accent {
+    float: left;
+    text-transform: uppercase;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 2px 0;
+  }
+  
+.radio-button {
+    margin: 2px;
+  }
+
+.radio-button-answer {
+    margin-bottom: 5px;
+}  
+
+.mat-card-actions {
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+#question {
+    color: #021A32;
+    font-size: 20px;
+    margin-bottom: 4px;
+}

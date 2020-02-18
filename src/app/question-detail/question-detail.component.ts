@@ -11,35 +11,22 @@ import { Question } from '../question';
   styleUrls: ['./question-detail.component.css']
 })
 export class QuestionDetailComponent implements OnInit {
-  @Input() required: Boolean
+  @Input() numberOfQuestions: number;
+  @Output() answer = new EventEmitter<string>();
   @Input() question: Question;
-  @Output() answer = new EventEmitter<any>();
-  @Output() questionForm: FormGroup;
+  questionForm: FormGroup;
   
   validationMessage: "Please select an answer."
   paramSub: Subscription;
  
-  numberOfQuestions = 0;
   currentQuestion = 0;
+
   progressValue: number;
 
-  constructor(private route: ActivatedRoute,
-              public questionService: QuestionService,
-              private fb: FormBuilder,
-              private router: Router
-              ) { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.paramSub = this.route.paramMap.subscribe(
-      (params: ParamMap) => {
-        console.log('paramMap questionId', params.get('questionId'));
-        this.questionService.setQuestionId(+params.get('questionId'));
-
-      this.question = this.questionService.getQuestion; // Set the current question to be displayed and create a form group.
-                  this.createForm();  
-                });  
-      this.numberOfQuestions = this.questionService.numberOfQuestions();
-      this.progressValue = 100 * (this.currentQuestion + 1) / this.numberOfQuestions;
+    this.createForm();  
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -54,6 +41,10 @@ export class QuestionDetailComponent implements OnInit {
     console.log(answer);
   }
 
+  initialState(): boolean {
+    return this.question.selectedAnswer === '';
+  }
+
   // onValueChanges(): void {
   //   this.questionForm.valueChanges.subscribe(value => console.log(value));
   // }
@@ -61,30 +52,16 @@ export class QuestionDetailComponent implements OnInit {
 
   createForm(){
     this.questionForm = this.fb.group({
-      answer: ''
+      answer: new FormControl(['', Validators.required])
     });
   }
 
-  nextQuestion() {
-    if (this.questionService.isThereAnotherQuestion()) {
-      this.router.navigate(['/question', this.questionService.getQuestionId() + 1 ]);
-    }
-    this.increaseProgressValue();
-  }
-
-  prevQuestion() {
-     this.router.navigate(['/question', this.questionService.getQuestionId() - 1 ]);
-  }
-
-  increaseProgressValue() {
-    this.progressValue = parseFloat((100 * (this.questionService.getQuestionId() + 1) / this.numberOfQuestions).toFixed(1));
-  }
-
-  onSubmit() {
-    console.log(this.questionForm.value);
-    if (this.questionForm.valid){
-      this.router.navigate(['/result']);
-    }
-  }
+  
+  // onSubmit() {
+  //   console.log(this.questionForm.value);
+  //   if (this.questionForm.valid){
+  //     this.router.navigate(['/result']);
+  //   }
+  // }
 
 }

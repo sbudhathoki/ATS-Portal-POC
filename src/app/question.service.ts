@@ -56,28 +56,28 @@ export class QuestionService {
       question: "Our leaders’ ability to influence others comes primarily from their:",
       category: { categoryId: 1, category: "Leadership Mindset", categoryCode: "I"},
       answers: [
-      { answerId: 9, answer: "Status and position in the organization", score: 3 },
-      { answerId: 10, answer: "Ability to get people to identify with them and their ideas", score: 7 }
+      { answerId: 11, answer: "Status and position in the organization", score: 3 },
+      { answerId: 12, answer: "Ability to get people to identify with them and their ideas", score: 7 }
     ], selectedAnswer: ""},
     { questionId: 7,
       question: "Delivery teams are stable with 3-8 team members",
       category: { categoryId: 2, category: "Practices & Behaviors", categoryCode: "IT"},
       answers: [
-      { answerId: 11, answer: "Strongly disagree", score: 1 },
-      { answerId: 12, answer: "Disagree", score: 2 },
-      { answerId: 13, answer: "Neutral / Hard to decide", score: 3},
-      { answerId: 14, answer: "Agree", score: 4},
-      { answerId: 15, answer: "Strongly Agree", score: 5}
+      { answerId: 13, answer: "Strongly disagree", score: 1 },
+      { answerId: 14, answer: "Disagree", score: 2 },
+      { answerId: 15, answer: "Neutral / Hard to decide", score: 3},
+      { answerId: 16, answer: "Agree", score: 4},
+      { answerId: 17, answer: "Strongly Agree", score: 5}
     ], selectedAnswer: ""},
     { questionId: 8,
       question: "Delivery team members work together in a team room",
       category: { categoryId: 2, category: "Practices & Behaviors", categoryCode: "IT"},
       answers: [
-      { answerId: 16, answer: "Strongly disagree", score: 1 },
-      { answerId: 17, answer: "Disagree", score: 2 },
-      { answerId: 18, answer: "Neutral / Hard to decide", score: 3},
-      { answerId: 19, answer: "Agree", score: 4},
-      { answerId: 20, answer: "Strongly Agree", score: 5}
+      { answerId: 18, answer: "Strongly disagree", score: 1 },
+      { answerId: 19, answer: "Disagree", score: 2 },
+      { answerId: 20, answer: "Neutral / Hard to decide", score: 3},
+      { answerId: 21, answer: "Agree", score: 4},
+      { answerId: 22, answer: "Strongly Agree", score: 5}
     ], selectedAnswer: ""},
   ];
 
@@ -113,11 +113,11 @@ export class QuestionService {
     return this.id < this.numberOfQuestions();
   } 
 
-  nextQuestion(): void {
-    this.id++;
-  }
+  // nextQuestion(): void {
+  //   this.id++;
+  // }
 
-  prevQuestion(): void {
-    this.id--;
-  }
+  // prevQuestion(): void {
+  //   this.id--;
+  // }
 }

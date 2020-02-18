@@ -1,26 +1,19 @@
-img {
+#logo {
 float: left;
-max-width: 100%;
-height: auto;
+width: 100%;
+height: fit-content;
 object-fit: contain; 
 margin: 0;
-padding: 3%;
+padding: 0;
 }
 
 .pageTitle {
     float: left;
-    margin: 1%;
-    padding: 11% 2% 5% 2%; 
-    font-size: 2.2rem;
-    font-weight: bolder;
-    color: #021a32;
+    margin: 12px 0 0 20px;
+    font-size: 1.75rem;
+    color: #B3D8E8;
 }
 
-.row {
-    height: 15%;
-    background-color: #f8f9fa;
+.mat-toolbar {
+    background-color: #021a32;
 }
-
-.container-fluid {
-    border-bottom: solid #021a32 3px;
-    }

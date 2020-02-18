@@ -1,5 +1,33 @@
 <div class="container"
-  fxLayoutAlign="center"> 
-      <span><mat-progress-bar mode="determinate" [style.width.%]="(questionService.qnProgress+1)*10"></mat-progress-bar></span>
+        fxLayoutAlign="center"
+        >
+<mat-card>
+  <section class="progressBar" >
+    <mat-progress-bar *ngIf="(progressValue >= 0 && progressValue <= 100) &&
+       question && question.questionId <= numberOfQuestions" [value]="progressValue">
+    </mat-progress-bar>
+    </section> 
+  <app-question-detail 
+    [question]="question" 
+    [numberOfQuestions]="numberOfQuestions" 
+    (answer)="answer($event)">
+    <div id="question">{{ question.question }}</div>
+  </app-question-detail>
 
+  <div>
+    <mat-card-actions>
+      <span *ngIf="question && question.questionId == numberOfQuestions">
+          <button mat-raised-button type="submit" (click)="onSubmit()" color="primary">Submit Answers</button>
+       </span>
+
+       <span *ngIf="question && question.questionId !== numberOfQuestions">
+          <button mat-raised-button type="button" (click)="nextQuestion()" color="primary">Next</button>
+       </span>
+
+       <span *ngIf="question && question.questionId !== 1">
+          <button mat-raised-button type="button" (click)="prevQuestion()" color="accent">Back</button>
+       </span>
+   </mat-card-actions>
+  </div>
+</mat-card>
 </div>

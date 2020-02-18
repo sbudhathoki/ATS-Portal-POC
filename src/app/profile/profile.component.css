@@ -1,5 +1,6 @@
 .mat-card {
     margin-top: 40px;
+    flex-basis: 35em;
 }
 
 .mat-raised-button {
