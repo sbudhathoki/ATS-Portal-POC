@@ -11,6 +11,10 @@ export class CompanyService {
 
   constructor(private http: HttpClient) { }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a8b9a86ed655194a42f5aacf92bab6d669c4623c
 createNewProfileOnServer(companyName: string, industry: string,
     firstName: string, lastName: string, title: string, 
     email: string, phoneNumber: string): Observable<Company> {
@@ -18,4 +22,8 @@ createNewProfileOnServer(companyName: string, industry: string,
     const url = this.apiUrl;
     return this.http.post<Company>(url, newProfile);
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a8b9a86ed655194a42f5aacf92bab6d669c4623c

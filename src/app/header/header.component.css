@@ -1,18 +1,32 @@
 #logo {
 float: left;
-max-width: 100%;
-height: auto;
+width: 100%;
+height: fit-content;
 object-fit: contain; 
 margin: 0;
+<<<<<<< HEAD
+=======
+padding: 0;
+>>>>>>> a8b9a86ed655194a42f5aacf92bab6d669c4623c
 }
 
 .pageTitle {
     float: left;
+<<<<<<< HEAD
     padding: 15px 0 0 15px;
     font-size: 1.5rem;
     color: #007db3;
+=======
+    margin: 12px 0 0 20px;
+    font-size: 1.75rem;
+    color: #B3D8E8;
+>>>>>>> a8b9a86ed655194a42f5aacf92bab6d669c4623c
 }
 
 .mat-toolbar {
     background-color: #021a32;
+<<<<<<< HEAD
     }
+=======
+}
+>>>>>>> a8b9a86ed655194a42f5aacf92bab6d669c4623c

@@ -1,5 +1,9 @@
 .mat-card {
+<<<<<<< HEAD
     margin-top: 50px;
+=======
+    margin-top: 40px;
+>>>>>>> a8b9a86ed655194a42f5aacf92bab6d669c4623c
     flex-basis: 35em;
 }
 
