@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { CompanyService } from '../company.service';
 import { Router } from '@angular/router';
 import { Industry, Role } from './profile.interface';
+import { Subscription } from 'rxjs';
+import { Company } from '../company';
 
 @Component({
   selector: 'app-profile',
@@ -10,26 +13,27 @@ import { Industry, Role } from './profile.interface';
 })
 export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
+  submitSub: Subscription;
 
   industries: Industry[] = [
-    {value: 1, viewValue: 'Financial Services'},
-    {value: 2, viewValue: 'Healthcare'},
-    {value: 3, viewValue: 'Communications'},
-    {value: 4, viewValue: 'Government'},
-    {value: 5, viewValue: 'Other'}
+    {value: "Financial Services", viewValue: 'Financial Services'},
+    {value: "Healthcare", viewValue: 'Healthcare'},
+    {value: "Communications", viewValue: 'Communications'},
+    {value: "Government", viewValue: 'Government'},
+    {value: "Other", viewValue: 'Other'}
   ];
 
   roles: Role[] = [
-    {value: 1, viewValue: 'Senior Executive'},
-    {value: 2, viewValue: 'SVP'},
-    {value: 3, viewValue: 'VP'},
-    {value: 4, viewValue: 'Director'},
-    {value: 5, viewValue: 'Program Manager'},
-    {value: 6, viewValue: 'Other'}
+    {value: "Senior Executive", viewValue: 'Senior Executive'},
+    {value: "SVP", viewValue: 'Senior Vice President'},
+    {value: "VP", viewValue: 'Vice President'},
+    {value: "Director", viewValue: 'Director'},
+    {value: "Program Manager", viewValue: 'Program Manager'},
+    {value: "Other", viewValue: 'Other'}
   ];
 
   validationMessages = {
-    'company': [
+    'companyName': [
       { type: 'required', message: 'Company Name is required.' }
     ],
     'industry': [
@@ -43,19 +47,20 @@ export class ProfileComponent implements OnInit {
       { type: 'pattern', message: 'Last Name contains illegal characters.' },
       { type: 'required', message: 'Last Name is required.' }
     ],
-    'role': [
+    'title': [
       { type: 'required', message: 'Role is required.' }
     ],
     'email': [
       { type: 'pattern', message: 'Email Address is invalid.' },
       { type: 'required', message: 'Email Address is required.' }
     ],
-    'phone': [
+    'phoneNumber': [
       { type: 'required', message: 'Phone Number is required.' }
     ]
   };
 
-  constructor(private fb: FormBuilder, 
+  constructor(private companyService: CompanyService,
+              private fb: FormBuilder, 
               private router: Router) {
    }
 
@@ -63,9 +68,15 @@ export class ProfileComponent implements OnInit {
     this.createForm();
   }
 
+  ngOnDestroy() {
+    if(this.submitSub) {
+      this.submitSub.unsubscribe();
+    }
+  }
+
   createForm() {
     this.profileForm = this.fb.group({
-      company: new FormControl('', Validators.required),
+      companyName: new FormControl('', Validators.required),
       industry: new FormControl('', Validators.required),
       firstName: new FormControl('', Validators.compose([
         Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"),
@@ -73,17 +84,33 @@ export class ProfileComponent implements OnInit {
       lastName: new FormControl('', Validators.compose([
         Validators.pattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"),
         Validators.required])),  
-      role: new FormControl('', Validators.required),
+      title: new FormControl('', Validators.required),
       email: new FormControl('', Validators.compose([
         Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$"),
         Validators.required])),
-      phone: new FormControl('', Validators.required)
+      phoneNumber: new FormControl('', Validators.required)
     });
   }
 
   onSubmit(): void {
-    console.log(this.profileForm.value);
     if (this.profileForm.valid){
+    const companyName = this.profileForm.value.companyName;
+    const industry = this.profileForm.value.industry;
+    const firstName = this.profileForm.value.firstName;
+    const lastName = this.profileForm.value.lastName;
+    const title = this.profileForm.value.title;
+    const email = this.profileForm.value.email;
+    const phoneNumber = this.profileForm.value.phoneNumber;
+
+    this.submitSub = this.companyService.createNewProfileOnServer(companyName, 
+      industry, firstName, lastName, title, email, phoneNumber).subscribe(
+      (response: Company) => {
+      console.log("response: ", response);
+    },
+      err => { console.log("error: " + err);
+      });
+
+
       this.router.navigate(['/question/1']);
     }
   }

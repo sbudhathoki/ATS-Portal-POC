@@ -10,13 +10,15 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 //phone mask
 import { NgxMaskModule, IConfig } from 'ngx-mask';
+//flex layout
+import { FlexLayoutModule } from '@angular/flex-layout';
 //material.io imports
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { 
           MatStepperModule, MatIconModule, MatButtonModule, 
           MatFormFieldModule, MatInputModule, MatListModule, 
           MatCardModule, MatSelectModule, MatRadioModule,
-          MatProgressBarModule
+          MatProgressBarModule, MatToolbarModule
         } from '@angular/material';    
 import { ResultComponent } from './result/result.component';
 import { QuestionDetailComponent } from './question-detail/question-detail.component';
@@ -50,6 +52,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
     MatSelectModule,
     MatRadioModule,
     MatProgressBarModule,
+    MatToolbarModule,
+    FlexLayoutModule,
     NgxMaskModule.forRoot(options)
   ],
   providers: [],

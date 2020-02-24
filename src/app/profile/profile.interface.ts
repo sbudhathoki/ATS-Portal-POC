@@ -1,9 +1,9 @@
 export interface Industry {
-    value: number;
+    value: string;
     viewValue: string;
   }
 
 export interface Role {
-    value: number;
+    value: string;
     viewValue: string;
 }

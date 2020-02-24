@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="container" fxLayoutAlign="center">
 
   <mat-card>
@@ -8,10 +9,10 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Company Name</mat-label>
-          <input matInput formControlName="company" type="text" required>
-          <mat-error *ngFor="let validation of validationMessages.company">
+          <input matInput formControlName="companyName" type="text" required>
+          <mat-error *ngFor="let validation of validationMessages.companyName">
             <mat-error class="error-message"
-              *ngIf="profileForm.get('company').hasError(validation.type) && (profileForm.get('company').dirty || profileForm.get('company').touched)">
+              *ngIf="profileForm.get('companyName').hasError(validation.type) && (profileForm.get('companyName').dirty || profileForm.get('companyName').touched)">
               {{validation.message}}
             </mat-error>
           </mat-error>
@@ -59,14 +60,14 @@
         <br>
         <mat-form-field appearance="outline">
           <mat-label>Role</mat-label>
-          <mat-select formControlName="role" required>
+          <mat-select formControlName="title" required>
             <mat-option *ngFor="let role of roles" [value]="role.value">
               {{role.viewValue}}
             </mat-option>
           </mat-select>
-          <mat-error *ngFor="let validation of validationMessages.role">
+          <mat-error *ngFor="let validation of validationMessages.title">
             <mat-error class="error-message"
-              *ngIf="profileForm.get('role').hasError(validation.type) && (profileForm.get('role').dirty || profileForm.get('role').touched)">
+              *ngIf="profileForm.get('title').hasError(validation.type) && (profileForm.get('title').dirty || profileForm.get('title').touched)">
               {{validation.message}}
             </mat-error>
           </mat-error>
@@ -74,7 +75,7 @@
         <br>
 
         <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
+          <mat-label>Email Address</mat-label>
           <input matInput formControlName="email" type="email" required>
           <mat-error *ngFor="let validation of validationMessages.email">
             <mat-error class="error-message"
@@ -85,12 +86,12 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>Phone</mat-label>
-          <input matInput formControlName="phone" type="tel" required mask="(000) 000-0000" prefix="+1"
+          <mat-label>Phone Number</mat-label>
+          <input matInput formControlName="phoneNumber" type="tel" required mask="(000) 000-0000" prefix="+1"
             [showMaskTyped]="false">
-          <mat-error *ngFor="let validation of validationMessages.phone">
+          <mat-error *ngFor="let validation of validationMessages.phoneNumber">
             <mat-error class="error-message"
-              *ngIf="profileForm.get('phone').hasError(validation.type) && (profileForm.get('phone').dirty || profileForm.get('phone').touched)">
+              *ngIf="profileForm.get('phoneNumber').hasError(validation.type) && (profileForm.get('phoneNumber').dirty || profileForm.get('phoneNumber').touched)">
               {{validation.message}}
             </mat-error>
           </mat-error>

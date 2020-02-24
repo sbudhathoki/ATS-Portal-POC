@@ -68,11 +68,18 @@ $tek-accent: (
     )
 );
 
-$tek-theme-primary: mat-palette($tek-primary, 500);
+$tek-theme-primary: mat-palette($tek-primary, 500, 200, 900);
 $tek-theme-accent:  mat-palette($tek-accent, 500);
-
+$tek-theme-background: #EEF7FD;
+// $tek-theme-background: map_get($tek-primary, 50);
+ 
 $tek-theme-warn:    mat-palette($mat-red);
-
+ 
 $tek-theme: mat-light-theme($tek-theme-primary, $tek-theme-accent, $tek-theme-warn);
-
+ 
+// Insert custom background color
+$background: map-get($tek-theme, background);
+$background: map_merge($background, (background: $tek-theme-background));
+$tek-theme: map_merge($tek-theme, (background: $background));
+ 
 @include angular-material-theme($tek-theme);

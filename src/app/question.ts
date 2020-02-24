@@ -1,10 +1,8 @@
 import { Answer } from './answer';
-import { Category } from './category';
 
-export interface Question {
+export class Question {
     questionId: number;
     question: string;
-    category: Category;
+    categoryCode: string;
     answers: Answer[];
-    selectedAnswer: string;
 }
