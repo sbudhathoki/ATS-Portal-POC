@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResultService } from '../result.service';
 
 @Component({
   selector: 'app-result',
@@ -7,7 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultComponent implements OnInit {
 
-  constructor() {}
+  constructor(private resultService: ResultService) {}
 
-  ngOnInit() {} 
+  ngOnInit() {
+    this.getPdf;
+  } 
+
+  getPdf() {
+    this.resultService.getPdfFromServer()
+      .subscribe(
+        (response: any) => {
+          console.log("response: ", response);
+        },
+        err => {
+          console.log("error: " + err)
+        }
+      )
+  }
 }

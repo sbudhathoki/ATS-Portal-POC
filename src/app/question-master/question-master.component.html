@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <app-header></app-header>
 
 <div class="container" fxLayoutAlign="center" >
@@ -18,46 +17,9 @@
             <app-question-detail
               [question]="question"
               [numberOfQuestions]="numberOfQuestions"
-              (answer)="answer($event)">
+              >
             </app-question-detail>
         </mat-card-content>
-      
-
-
-        <mat-card-actions>
-          <div>
-          <span *ngIf="question && question.questionId == numberOfQuestions">
-              <button mat-raised-button type="submit" (click)="onSubmit()" color="primary">Submit Answers</button>
-           </span>
-
-           <span *ngIf="question && question.questionId !== numberOfQuestions">
-              <button mat-raised-button type="button" (click)="nextQuestion()" color="primary">Next</button>
-           </span>
-
-           <span *ngIf="question && question.questionId !== 1">
-              <button mat-raised-button type="button" (click)="prevQuestion()" color="accent">Back</button>
-           </span>
-           </div>
-       </mat-card-actions>
-      </div>
-    </mat-card>
-=======
-<div class="container"
-        fxLayoutAlign="center"
-        >
-<mat-card>
-  <section class="progressBar" >
-    <mat-progress-bar *ngIf="(progressValue >= 0 && progressValue <= 100) &&
-       question && question.questionId <= numberOfQuestions" [value]="progressValue">
-    </mat-progress-bar>
-    </section> 
-  <app-question-detail 
-    [question]="question" 
-    [numberOfQuestions]="numberOfQuestions" 
-    (answer)="answer($event)">
-    <div id="question">{{ question.question }}</div>
-  </app-question-detail>
->>>>>>> a8b9a86ed655194a42f5aacf92bab6d669c4623c
 
   <div>
     <mat-card-actions>
@@ -74,5 +36,8 @@
        </span>
    </mat-card-actions>
   </div>
+      </div>
 </mat-card>
 </div>
+
+<!-- (answer)="answer($event)" -->

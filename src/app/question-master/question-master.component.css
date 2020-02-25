@@ -1,5 +1,4 @@
 .mat-card {
-<<<<<<< HEAD
     margin-top: 50px;
     flex-basis: 35em;
 }
@@ -10,17 +9,6 @@
     margin-bottom: 0;
     /* padding: 5px; */
     color: #021a32;
-=======
-    margin-top: 40px;
-    flex-basis: 50em;
-}
-
-.mat-card-title {
-    text-align: center;
-    font-size: 20px;
-    margin-bottom: 0;
-    padding: 5px;
->>>>>>> a8b9a86ed655194a42f5aacf92bab6d669c4623c
 }
 
 .mat-card-subtitle {
@@ -57,25 +45,11 @@
     margin: 2px;
   }
 
-<<<<<<< HEAD
 .mat-card-content {
     font-size: 16px;
-=======
-.radio-button-answer {
-    margin-bottom: 5px;
->>>>>>> a8b9a86ed655194a42f5aacf92bab6d669c4623c
 }  
 
 .mat-card-actions {
     padding: 10px;
     margin-bottom: 30px;
-<<<<<<< HEAD
-=======
-}
-
-#question {
-    color: #021A32;
-    font-size: 20px;
-    margin-bottom: 4px;
->>>>>>> a8b9a86ed655194a42f5aacf92bab6d669c4623c
 }

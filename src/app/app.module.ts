@@ -22,7 +22,6 @@ import {
         } from '@angular/material';    
 import { ResultComponent } from './result/result.component';
 import { QuestionDetailComponent } from './question-detail/question-detail.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
 

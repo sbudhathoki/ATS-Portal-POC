@@ -1,8 +1,4 @@
 export class Company {
-<<<<<<< HEAD
-=======
-    // companyId: number;
->>>>>>> a8b9a86ed655194a42f5aacf92bab6d669c4623c
     companyName: string;
     industry: string;
     firstName: string;
