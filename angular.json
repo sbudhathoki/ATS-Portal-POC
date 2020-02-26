@@ -128,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "ats-portal"
+  "defaultProject": "ats-portal",
+  "cli": {
+    "analytics": false
+  }
 }

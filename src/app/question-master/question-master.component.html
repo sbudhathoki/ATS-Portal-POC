@@ -24,15 +24,15 @@
   <div>
     <mat-card-actions>
       <span *ngIf="question && question.questionId == numberOfQuestions">
-          <button mat-raised-button type="submit" (click)="onSubmit()" color="primary">Submit Answers</button>
+          <button mat-raised-button type="submit" (click)="onSubmit()" color="accent">Submit Answers</button>
        </span>
 
        <span *ngIf="question && question.questionId !== numberOfQuestions">
-          <button mat-raised-button type="button" (click)="nextQuestion()" color="primary">Next</button>
+          <button mat-raised-button type="button" (click)="nextQuestion()" color="accent">Next</button>
        </span>
 
        <span *ngIf="question && question.questionId !== 1">
-          <button mat-raised-button type="button" (click)="prevQuestion()" color="accent">Back</button>
+          <button mat-raised-button type="button" (click)="prevQuestion()" color="primary">Back</button>
        </span>
    </mat-card-actions>
   </div>
