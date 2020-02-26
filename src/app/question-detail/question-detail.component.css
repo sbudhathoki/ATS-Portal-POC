@@ -41,6 +41,6 @@
     margin-bottom: 30px;
 }
 
-.mat-radio-outer-circle {
+::ng-deep.mat-radio-outer-circle {
     border-color: white;
 }

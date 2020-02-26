@@ -58,3 +58,10 @@
     margin-bottom: 30px;
 }
 
+::ng-deep.mat-progress-bar-buffer {
+    background-color: #fbc481;
+}
+
+::ng-deep.mat-progress-bar-fill::after {
+    background-color: #db7d07;
+}
