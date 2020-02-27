@@ -1,14 +1,12 @@
-<div class="container-full-bg">
-    <!--remove bootstrap-->
-    <div class="jumbotron"> 
+
         <div class="container">
+            <mat-card>
             <div class="row">
 
-                <div class="col-md-7">
+                <div class="col-md-8">
                     <!-- TITLE -->
-
-                    <h1>TEKsystems Agile Transformation Services<br>
-                        Assessment</h1>
+                    <span><img id="logo" src="../assets/logo-white.png"></span>
+                    <h1>Agile Transformation Services Assessment</h1>
 
                     <p class="lead">This self-assessment is designed to help you understand your organization's readiness
                         for an Agile Transformation by increasing awareness and understanding of where you are starting
@@ -21,18 +19,17 @@
                     <hr class="my-4">
                     <p>Click the button to begin.</p>
                     <!-- BUTTON -->
-                    <button type="button" mat-raised-button color="primary" (click)="onClick()">Begin</button>
+                    <button type="button" mat-raised-button color="accent" (click)="onClick()">Begin</button>
                 </div>
 
                 <!-- IMAGE TRIANGLE -->
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <img id="pic1" src="../assets/tekPic.png">
                     <img id="pic2" src="../assets/tekPic2.png">
 
                 </div>
 
             </div>
-
+        </mat-card>
         </div>
-    </div>
-</div>
+   

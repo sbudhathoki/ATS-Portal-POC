@@ -40,3 +40,7 @@
     padding: 10px;
     margin-bottom: 30px;
 }
+
+::ng-deep.mat-radio-outer-circle {
+    border-color: white;
+}

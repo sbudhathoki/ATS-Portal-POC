@@ -1,6 +1,9 @@
 .mat-card {
     margin-top: 50px;
     flex-basis: 35em;
+    background-color:#00284d ;
+    color: white;
+    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 
 .mat-card-title {
@@ -8,13 +11,14 @@
     font-size: 20px;
     margin-bottom: 0;
     /* padding: 5px; */
-    color: #021a32;
+    color: white;
 }
 
 .mat-card-subtitle {
     font-size: 18px;
     padding: 16px 0 5px;
     margin: 0;
+    color:#0194D3;
 }
 
 .mat-card-content {
@@ -25,12 +29,12 @@
     color: #f7931e;
 }
 
-.mat-raised-button.mat-button-base.mat-primary {
+.mat-raised-button.mat-button-base.mat-accent {
     float: right;
     text-transform: uppercase;
 }
 
-.mat-raised-button.mat-button-base.mat-accent {
+.mat-raised-button.mat-button-base.mat-primary {
     float: left;
     text-transform: uppercase;
 }
@@ -52,4 +56,12 @@
 .mat-card-actions {
     padding: 10px;
     margin-bottom: 30px;
+}
+
+::ng-deep.mat-progress-bar-buffer {
+    background-color: #fbc481;
+}
+
+::ng-deep.mat-progress-bar-fill::after {
+    background-color: #db7d07;
 }

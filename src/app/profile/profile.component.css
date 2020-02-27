@@ -1,6 +1,8 @@
 .mat-card {
     margin-top: 50px;
     flex-basis: 35em;
+    background-color: #00284d;
+    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 
 .mat-raised-button {
@@ -15,4 +17,27 @@
 .mat-card-actions {
     padding: 10px;
     margin-bottom: 30px;
+}
+
+.mat-card-title {
+    font-size: 25px;
+    color:#0194D3;
+}
+
+.mat-card-subtitle {
+    color:white;
+}
+
+.mat-divider {
+    background-color: #F8971D ;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    background-color: white;
+    border-radius: 5px;
+    /* color: #C1D82F; */
+  }
+
+::ng-deep .mat-radio-outer-circle {
+    border-color: white;
 }

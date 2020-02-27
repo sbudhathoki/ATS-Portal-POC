@@ -7,7 +7,7 @@
       <mat-card-subtitle>Company Information</mat-card-subtitle>
       <mat-card-content>
 
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" >
           <mat-label>Company Name</mat-label>
           <input matInput formControlName="companyName" type="text" required>
           <mat-error *ngFor="let validation of validationMessages.companyName">
@@ -99,7 +99,7 @@
 
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button type="submit" color="primary" [disabled]="profileForm.invalid">Get Started</button>
+        <button mat-raised-button type="submit" color="accent" [disabled]="profileForm.invalid">Get Started</button>
       </mat-card-actions>
     </form>
 
