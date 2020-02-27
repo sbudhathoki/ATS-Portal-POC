@@ -10,8 +10,8 @@ export class ResultService {
 
   constructor(private http: HttpClient) {}
 
-  getPdfFromServer(): Observable<any> {
+  getPdf(): Observable<Blob> {
     const url = this.apiUrl;
-    return this.http.get<any>(url);
+    return this.http.get(url, { responseType: 'blob'});
   }
 }

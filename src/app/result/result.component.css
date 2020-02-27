@@ -1,0 +1,29 @@
+.mat-card {
+    margin-top: 50px;
+    flex-basis: 35em;
+}
+
+.mat-card-content {
+    background-image: url(src\assets\sidepanel.png);
+    background-size: cover;
+}
+
+.mat-card-title {
+    text-align: left;
+    font-size: 20px;
+    margin-bottom: 0;
+    /* padding: 5px; */
+    color: #021a32;
+}
+
+.mat-card-subtitle {
+    font-size: 18px;
+    padding: 16px 0 5px;
+    margin: 0;
+}
+
+.mat-raised-button.mat-button-base.mat-primary {
+    float: left;
+    text-transform: uppercase;
+    margin: 15px 0 0 15px;
+}

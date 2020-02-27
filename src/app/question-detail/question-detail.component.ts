@@ -1,5 +1,5 @@
 import { Component, OnInit, SimpleChanges, Input, EventEmitter, Output } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators, FormArray } from '@angular/forms';
 import { Question } from '../question';
 
 @Component({
@@ -14,7 +14,8 @@ export class QuestionDetailComponent implements OnInit {
   @Output() questionForm: FormGroup;
   
   validationMessage: "Please select an answer."
-  selectedAnswer = '';
+  questions: Question[];
+  answers = [];
 
   constructor(private fb: FormBuilder) { }
 
@@ -23,9 +24,15 @@ export class QuestionDetailComponent implements OnInit {
   }
 
   createForm(){
-    this.questionForm = new FormGroup({
-      answer: new FormControl(['', Validators.required])
+    this.questionForm = this.fb.group({
+      answer: ''
     });
+  }
+
+  record(answer) {
+    this.answers.push({ question: this.question.questionId, answer });
+    this.answer.emit(answer);
+    console.log(this.answers)
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -35,18 +42,4 @@ export class QuestionDetailComponent implements OnInit {
     }
   }
 
-  radioChange(answer: any) {
-    this.selectedAnswer = answer;
-    this.answer.emit(answer);
-    console.log(answer);
   }
-
-  // initialState(): boolean {
-  //   return this.question.selectedAnswer === '';
-  // }
-
-  // onValueChanges(): void {
-  //   this.questionForm.valueChanges.subscribe(value => console.log(value));
-  // }
-  
-}

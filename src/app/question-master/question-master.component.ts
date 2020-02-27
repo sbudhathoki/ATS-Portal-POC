@@ -12,7 +12,9 @@ import { Answer } from '../answer';
   styleUrls: ['./question-master.component.css']
 })
 export class QuestionMasterComponent implements OnInit {
-  questions: Question[] = [];
+  @Input() questions: Question[] = []; //added input
+  @Input() questionForm = FormGroup; //added form
+
   question: Question;
   numberOfQuestions = 0;
   answers: Answer[];
@@ -111,6 +113,7 @@ export class QuestionMasterComponent implements OnInit {
     // console.log(this.questionForm.value);
     // if (this.questionForm.valid){
       this.router.navigate(['/result']);
+
     // }
   }
 }

@@ -19,5 +19,5 @@ export class QuestionService {
   getQuestionByIdFromServer(id: number): Observable<Question> {
     const url =  `${this.apiUrl}/questions/${id}`;
     return this.http.get<Question>(url);
-  } 
+  }
 }

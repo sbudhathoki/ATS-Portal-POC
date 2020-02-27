@@ -17,6 +17,7 @@
             <app-question-detail
               [question]="question"
               [numberOfQuestions]="numberOfQuestions"
+              (answer)="answer($event)"
               >
             </app-question-detail>
         </mat-card-content>
@@ -39,5 +40,3 @@
       </div>
 </mat-card>
 </div>
-
-<!-- (answer)="answer($event)" -->
