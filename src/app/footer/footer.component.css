@@ -1,0 +1,15 @@
+.footer {
+    background-color: rgba(0, 0, 0, 0); 
+}
+
+.container {
+    padding: 20px;
+}
+
+#footer-text {
+    color: #ffffff;
+    text-align: center;
+    font-weight: lighter;
+    font-size: 14px;
+    margin: 0;
+}

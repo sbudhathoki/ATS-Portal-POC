@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Industry, Role } from './profile.interface';
 import { Subscription } from 'rxjs';
 import { Company } from '../company';
+import { QuestionService } from '../question.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,6 +15,7 @@ import { Company } from '../company';
 export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
   submitSub: Subscription;
+  companyName = "";
 
   industries: Industry[] = [
     {value: "Financial Services", viewValue: 'Financial Services'},
@@ -60,6 +62,7 @@ export class ProfileComponent implements OnInit {
   };
 
   constructor(private companyService: CompanyService,
+              private questionService: QuestionService,
               private fb: FormBuilder, 
               private router: Router) {
    }
@@ -105,12 +108,10 @@ export class ProfileComponent implements OnInit {
     this.submitSub = this.companyService.createNewProfileOnServer(companyName, 
       industry, firstName, lastName, title, email, phoneNumber).subscribe(
       (response: Company) => {
-      console.log("response: ", response);
+      console.log("profile: ", response);
     },
       err => { console.log("error: " + err);
       });
-
-
       this.router.navigate(['/question/1']);
     }
   }

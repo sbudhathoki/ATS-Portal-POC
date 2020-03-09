@@ -1,19 +1,9 @@
 <ng-content></ng-content>
    
 <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
-   <!-- <div formArrayName="answerArray"
-      *ngFor="let answer of question.answers; let i=index">
-            <mat-radio-button [formControl]="answerArray[i]" >
-               {{ answer.answer }}
-            </mat-radio-button>  
-        
-      
-   </div> -->
 
-
-
-   <mat-card-content>    
-      <mat-radio-group class="radio-group" formControlName="answer" name="answer">
+   <mat-card-content>   
+      <mat-radio-group class="radio-group" formControlName="answer" name="answer" required>
          <div *ngFor="let answer of question.answers; let i=index">
             <mat-radio-button class="radio-button-answer" [value]="answer.answerId" 
             (click)="record(answer)">
@@ -21,10 +11,7 @@
             </mat-radio-button>
             
          </div>
-               <!-- <mat-error class="error-message" 
-                   *ngIf="questionForm.get('answer').hasError('required')">
-                   {{validationMessage}}
-               </mat-error> -->
+             
       </mat-radio-group>
    </mat-card-content>   
 </form>

@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class CompanyService {
   apiUrl = 'http://localhost:8080/api/company';
+  // companyName: string;
 
   constructor(private http: HttpClient) { }
 
@@ -18,9 +19,4 @@ export class CompanyService {
     const url = this.apiUrl;
     return this.http.post<Company>(url, newProfile);
   }
-
-  getCompanyByIdFromServer(id: number){
-    const url = `${this.apiUrl}/${id}`;
-    return this.http.get<Company>(url);
-  }  
 }

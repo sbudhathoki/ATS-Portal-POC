@@ -20,8 +20,12 @@ import {
           MatCardModule, MatSelectModule, MatRadioModule,
           MatProgressBarModule, MatToolbarModule
         } from '@angular/material';    
+import { AcknowledgmentComponent } from './acknowledgment/acknowledgment.component';
 import { ResultComponent } from './result/result.component';
 import { QuestionDetailComponent } from './question-detail/question-detail.component';
+import { QuestionService } from './question.service';
+import { FooterComponent } from './footer/footer.component';
+
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
 
@@ -30,10 +34,12 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
     AppComponent,
     ProfileComponent,
     QuestionMasterComponent,
+    QuestionDetailComponent,
     HeaderComponent,
     HomeComponent,
+    AcknowledgmentComponent,
     ResultComponent,
-    QuestionDetailComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +62,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
     FlexLayoutModule,
     NgxMaskModule.forRoot(options)
   ],
-  providers: [],
+  providers: [QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

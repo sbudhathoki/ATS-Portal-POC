@@ -1,2 +1,8 @@
-<router-outlet><router-outlet>
-    
+<div fxLayout="column" fxFlexFill>
+    <!--hides the header from the homepage-->
+    <app-header *ngIf="!router.url.includes('home')"></app-header> 
+    <div fxFlex>
+        <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+</div>

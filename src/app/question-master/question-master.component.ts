@@ -1,10 +1,10 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { QuestionService } from '../question.service';
 import { Question } from '../question';
 import { Subscription } from 'rxjs';
 import { ParamMap, ActivatedRoute, Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
-import { Answer } from '../answer';
+import { CompanyService } from '../company.service';
 
 @Component({
   selector: 'app-question-master',
@@ -12,27 +12,30 @@ import { Answer } from '../answer';
   styleUrls: ['./question-master.component.css']
 })
 export class QuestionMasterComponent implements OnInit {
-  @Input() questions: Question[] = []; //added input
-  @Input() questionForm = FormGroup; //added form
+questions: Question[] = [];
+@Input() questionForm = FormGroup; //added form
 
   question: Question;
+  questionId: number;
   numberOfQuestions = 0;
-  answers: Answer[];
+  answers = [];
 
   //Subscriptions
   questionSub: Subscription;
   paramSub: Subscription;
   questionByIdSub: Subscription;
+  submitSub: Subscription;
 
   //Progress bar
   progressValue = 0;
   currentQuestion = 0;
 
   constructor(private questionService: QuestionService,
+              private companyService: CompanyService,
               private route: ActivatedRoute,
               private router: Router) { }
 
-  ngOnInit() {
+    ngOnInit() {
     this.getAllQuestions();
 
     this.paramSub = this.route.paramMap.subscribe(
@@ -63,6 +66,7 @@ export class QuestionMasterComponent implements OnInit {
           console.log("response: ", response);
           this.questions = response;
 
+          
           this.numberOfQuestions = this.questions.length;
           console.log("total questions: " + this.numberOfQuestions);
           this.progressValue = 100 * (this.currentQuestion + 1) / this.numberOfQuestions;
@@ -86,8 +90,10 @@ export class QuestionMasterComponent implements OnInit {
       )
   }
 
-  answer(value) {
-    console.log(value)
+  answer(answer) {
+    this.answers.push({ questionId: this.question.questionId, answerId: answer.answerId });
+    console.log("answers: ", this.answers)
+    this.answers = this.questionService.getAnswers();
   }
 
   isThereAnotherQuestion(): boolean {
@@ -110,10 +116,12 @@ export class QuestionMasterComponent implements OnInit {
   }
 
   onSubmit() {
-    // console.log(this.questionForm.value);
-    // if (this.questionForm.valid){
-      this.router.navigate(['/result']);
-
-    // }
+    this.submitSub = this.questionService.postQAResponseToServer(this.answers).subscribe(
+      (response: any[]) => {
+      console.log("response: ", response);
+    },
+      err => { console.log("error: " + err);
+      });
+      this.router.navigate(['/acknowledgment']);
   }
 }

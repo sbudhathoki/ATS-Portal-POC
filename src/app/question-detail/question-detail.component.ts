@@ -1,5 +1,5 @@
-import { Component, OnInit, SimpleChanges, Input, EventEmitter, Output } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators, FormArray } from '@angular/forms';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl, Validators} from '@angular/forms';
 import { Question } from '../question';
 
 @Component({
@@ -16,6 +16,7 @@ export class QuestionDetailComponent implements OnInit {
   validationMessage: "Please select an answer."
   questions: Question[];
   answers = [];
+  
 
   constructor(private fb: FormBuilder) { }
 
@@ -25,21 +26,19 @@ export class QuestionDetailComponent implements OnInit {
 
   createForm(){
     this.questionForm = this.fb.group({
-      answer: ''
+      answer: new FormControl(['', Validators.required])
     });
   }
 
   record(answer) {
-    this.answers.push({ question: this.question.questionId, answer });
     this.answer.emit(answer);
-    console.log(this.answers)
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes.question && changes.question.currentValue && !changes.question.firstChange) {
-      this.questionForm.patchValue({answer: ''});
-      console.log(this.questionForm.value);
-    }
-  }
+  // ngOnChanges(changes: SimpleChanges) {
+  //   if (changes.question && changes.question.currentValue && !changes.question.firstChange) {
+  //     this.questionForm.patchValue({answer: ''});
+  //     console.log(this.questionForm.value);
+  //   }
+  // }
 
   }

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { QuestionMasterComponent } from './question-master/question-master.component';
 import { ProfileComponent } from './profile/profile.component'
+import { AcknowledgmentComponent } from './acknowledgment/acknowledgment.component';
 import { ResultComponent } from './result/result.component';
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'question/:questionId', component: QuestionMasterComponent },
+  { path: 'acknowledgment', component: AcknowledgmentComponent },
   { path: 'result', component: ResultComponent },
   { path: '**', component: HomeComponent }
 ];
