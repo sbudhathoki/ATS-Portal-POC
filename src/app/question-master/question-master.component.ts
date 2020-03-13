@@ -4,7 +4,7 @@ import { Question } from '../question';
 import { Subscription } from 'rxjs';
 import { ParamMap, ActivatedRoute, Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
-import { CompanyService } from '../company.service';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-question-master',
@@ -25,17 +25,21 @@ questions: Question[] = [];
   paramSub: Subscription;
   questionByIdSub: Subscription;
   submitSub: Subscription;
+  companyName: string = "";
+  
 
   //Progress bar
   progressValue = 0;
   currentQuestion = 0;
 
   constructor(private questionService: QuestionService,
-              private companyService: CompanyService,
+              private dataService: DataService,
               private route: ActivatedRoute,
               private router: Router) { }
 
     ngOnInit() {
+    this.dataService.currentCompany.subscribe(company => this.companyName = company);
+
     this.getAllQuestions();
 
     this.paramSub = this.route.paramMap.subscribe(
@@ -116,11 +120,11 @@ questions: Question[] = [];
   }
 
   onSubmit() {
-    this.submitSub = this.questionService.postQAResponseToServer(this.answers).subscribe(
-      (response: any[]) => {
+    this.submitSub = this.questionService.postQAResponseToServer(this.companyName, this.answers).subscribe(
+      (response: any) => {
       console.log("response: ", response);
     },
-      err => { console.log("error: " + err);
+      err => { console.log("error: " + err.message);
       });
       this.router.navigate(['/acknowledgment']);
   }

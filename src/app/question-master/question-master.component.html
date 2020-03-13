@@ -1,42 +1,42 @@
 <div class="container" fxLayoutAlign="center" >
 
-    <mat-card>
-      <div *ngIf="question">
-        <section class="progressBar">
-        <mat-progress-bar *ngIf="(progressValue >= 0 && progressValue <= 100) &&
-           question && question.questionId <= numberOfQuestions" [value]="progressValue">
-        </mat-progress-bar>
-        </section>
-        <mat-card-header>
-           <mat-card-subtitle>Question {{question.questionId}} of {{numberOfQuestions}}</mat-card-subtitle>
-           <mat-card-title>{{question.question}}</mat-card-title>
-        </mat-card-header>
-        <hr>
-        <mat-card-content>
-            <app-question-detail
-              [question]="question"
-              [numberOfQuestions]="numberOfQuestions"
-              (answer)="answer($event)"
-              >
-            </app-question-detail>
-        </mat-card-content>
+   <mat-card>
+     <div *ngIf="question">
+       <section class="progressBar">
+       <mat-progress-bar *ngIf="(progressValue >= 0 && progressValue <= 100) &&
+          question && question.questionId <= numberOfQuestions" [value]="progressValue">
+       </mat-progress-bar>
+       </section>
+       <mat-card-header>
+          <mat-card-subtitle>Question {{question.questionId}} of {{numberOfQuestions}}</mat-card-subtitle>
+          <mat-card-title>{{question.question}}</mat-card-title>
+       </mat-card-header>
+       <hr>
+       <mat-card-content>
+           <app-question-detail
+             [question]="question"
+             [numberOfQuestions]="numberOfQuestions"
+             (answer)="answer($event)"
+             >
+           </app-question-detail>
+       </mat-card-content>
 
-  <div>
-    <mat-card-actions>
-      <span *ngIf="question && question.questionId == numberOfQuestions">
-          <button mat-raised-button type="submit" (click)="onSubmit()" color="accent">Submit Answers</button>
-       </span>
+ <div>
+   <mat-card-actions>
+     <span *ngIf="question && question.questionId == numberOfQuestions">
+         <button mat-raised-button type="submit" (click)="onSubmit()" color="accent">Submit Answers</button>
+      </span>
 
-       <span *ngIf="question && question.questionId !== numberOfQuestions">
-          <button mat-raised-button type="button" (click)="nextQuestion()" color="accent">Next</button>
-       </span>
+      <span *ngIf="question && question.questionId !== numberOfQuestions">
+         <button mat-raised-button type="button" (click)="nextQuestion()" color="accent">Next</button>
+      </span>
 
-       <span *ngIf="question && question.questionId !== 1">
-          <button mat-raised-button type="button" (click)="prevQuestion()" color="primary">Back</button>
-       </span>
-   </mat-card-actions>
-  </div>
-      </div>
+      <span *ngIf="question && question.questionId !== 1">
+         <button mat-raised-button type="button" (click)="prevQuestion()" color="primary">Back</button>
+      </span>
+  </mat-card-actions>
+ </div>
+     </div>
 </mat-card>
 </div>
 

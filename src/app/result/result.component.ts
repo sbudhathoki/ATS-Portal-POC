@@ -1,22 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { ResultService } from '../result.service';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
-  styleUrls: ['./result.component.css']
+  styleUrls: ['./result.component.css'],
 })
 export class ResultComponent implements OnInit {
   html = '';
+  companyName = '';
 
-  constructor(private resultService: ResultService) { }
+  constructor(private resultService: ResultService,
+              private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.dataService.currentCompany.subscribe(company => this.companyName = company);
+
     this.getHTML();
   }
 
   getHTML() {
-    this.resultService.getHTMLFromServer()
+    this.resultService.getHTMLFromServer(this.companyName)
       .subscribe(
         (response: any) => {
           this.html = response;

@@ -8,7 +8,7 @@
 
         <mat-form-field appearance="outline" >
           <mat-label>Company Name</mat-label>
-          <input matInput formControlName="companyName" type="text" required>
+          <input matInput formControlName="companyName" name="companyName" type="text" required (blur)="newCompany()">
           <mat-error *ngFor="let validation of validationMessages.companyName">
             <mat-error class="error-message"
               *ngIf="profileForm.get('companyName').hasError(validation.type) && (profileForm.get('companyName').dirty || profileForm.get('companyName').touched)">
@@ -101,6 +101,5 @@
         <button mat-raised-button type="submit" color="accent" [disabled]="profileForm.invalid">Get Started</button>
       </mat-card-actions>
     </form>
-
   </mat-card>
 </div>

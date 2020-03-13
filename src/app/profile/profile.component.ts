@@ -6,6 +6,7 @@ import { Industry, Role } from './profile.interface';
 import { Subscription } from 'rxjs';
 import { Company } from '../company';
 import { QuestionService } from '../question.service';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +16,8 @@ import { QuestionService } from '../question.service';
 export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
   submitSub: Subscription;
-  companyName = "";
+  companyName: string = "";
+  currentCompany: string;
 
   industries: Industry[] = [
     {value: "Financial Services", viewValue: 'Financial Services'},
@@ -63,18 +65,27 @@ export class ProfileComponent implements OnInit {
 
   constructor(private companyService: CompanyService,
               private questionService: QuestionService,
+              private dataService: DataService,
               private fb: FormBuilder, 
               private router: Router) {
    }
 
   ngOnInit() {
     this.createForm();
+
+    this.dataService.currentCompany.subscribe(company => this.companyName = company);
   }
 
   ngOnDestroy() {
     if(this.submitSub) {
       this.submitSub.unsubscribe();
     }
+  }
+
+  //for sending company name to question master
+  newCompany() {
+    this.currentCompany = this.profileForm.value.companyName;
+    this.dataService.updateCompany(this.currentCompany);
   }
 
   createForm() {
@@ -116,4 +127,3 @@ export class ProfileComponent implements OnInit {
     }
   }
 }
-

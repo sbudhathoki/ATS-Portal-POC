@@ -1,10 +1,16 @@
-<div class="container" fxLayoutAlign="center">
-    <div class="pdf">
-    <button mat-raised-button type="button" 
-    (click)="downloadPDF()" color="accent">Export to PDF</button>
+<div fxLayout="row" style="margin-top:20px;">
+    <div fxFlex="10"></div>
+    <div fxFlex="80">
+        <button mat-raised-button type="button" 
+        (click)="downloadPDF()" color="accent">Export to PDF</button>
     </div>
-    
-    <div class="content">
-    <div [innerHTML]="html"></div>
-    </div>    
+    <div fxFlex="10"></div>
+</div>
+
+<div fxLayout="row" style="margin-top:20px;">
+    <div fxFlex="10"></div>
+    <div fxFlex="80" style="background-color:#ffffff;">
+        <div class="html" [innerHTML]="html | safeHtml"></div>
+    </div>
+    <div fxFlex="10">
 </div>

@@ -23,8 +23,9 @@ import {
 import { AcknowledgmentComponent } from './acknowledgment/acknowledgment.component';
 import { ResultComponent } from './result/result.component';
 import { QuestionDetailComponent } from './question-detail/question-detail.component';
-import { QuestionService } from './question.service';
 import { FooterComponent } from './footer/footer.component';
+import { DataService } from './data.service';
+import { SafeHtmlPipe } from './safe-html.pipe';
 
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
@@ -39,7 +40,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
     HomeComponent,
     AcknowledgmentComponent,
     ResultComponent,
-    FooterComponent
+    FooterComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
     FlexLayoutModule,
     NgxMaskModule.forRoot(options)
   ],
-  providers: [QuestionService],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
