@@ -11,23 +11,14 @@ export class ResultService {
 
   constructor(private http: HttpClient) {}
 
-  // getPdf(): Observable<Blob> {
-  //   const url = this.apiUrl;
-  //   return this.http.get(url, { responseType: 'blob'});
-  // }
-
-
-  //use for testing
-  getHTMLFromServer(company: string): Observable<any>{
-    this.companyName = company; //company will be the default
-    const url = `${this.apiUrl}/surveyreport/Costco`
-    return this.http.get(url, {responseType: 'text'});
+  getPdf(): Observable<Blob> {
+    const url = `${this.apiUrl}/generatepdf/${this.companyName}`;
+    return this.http.get(url, { responseType: 'blob'});
   }
 
-  //use for dynamic report
-  // getHTMLFromServer(company: string): Observable<any>{
-  //   this.companyName = company;
-  //   const url = `${this.apiUrl}/surveyreport/${this.companyName}`
-  //   return this.http.get(url, {responseType: 'text'});
-  // }
+  getHTMLFromServer(company: string): Observable<any>{
+    this.companyName = company;
+    const url = `${this.apiUrl}/surveyreport/${this.companyName}`
+    return this.http.get(url, {responseType: 'text'});
+  }
 }

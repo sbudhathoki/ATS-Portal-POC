@@ -31,28 +31,30 @@ export class ResultComponent implements OnInit {
         });
   }
 
-  // showPdf(): void {
-  //   this.resultService.getPdf()
-  //   .subscribe(x => {
-  //     var newBlob = new Blob([x], { type: 'application/pdf' });
+  showPdf(): void {
+    this.resultService.getPdf()
+    .subscribe(x => {
+      var newBlob = new Blob([x], { type: 'application/pdf' });
       
-  //     if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-  //       window.navigator.msSaveOrOpenBlob(newBlob);
-  //       return;
-  //   }
+      if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+        window.navigator.msSaveOrOpenBlob(newBlob);
+        return;
+    }
 
-  //   const data = window.URL.createObjectURL(newBlob);
+    const data = window.URL.createObjectURL(newBlob);
 
-  //   var link = document.createElement('a');
-  //   link.href = data;
-  //   // link.download = //add name of the pdf
+    var link = document.createElement('a');
+    link.href = data;
+    link.download = "ats.pdf";
 
-  //   link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+    link.click();
 
-  //   setTimeout(function () {
-  //     window.URL.revokeObjectURL(data);
-  //     link.remove();
-  //   }, 100);
-  //   });
-  // }
+    link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+
+    setTimeout(function () {
+      window.URL.revokeObjectURL(data);
+      link.remove();
+    }, 100);
+    });
+  }
 }
