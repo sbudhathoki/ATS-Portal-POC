@@ -24,10 +24,6 @@ export class QuestionService {
     return this.http.get<Question>(url);
   }
 
-  getAnswers(): any[] {
-    return this.answers;
-  }
-
   createNewProfileOnServer(companyName: string, industry: string,
     firstName: string, lastName: string, title: string, 
     email: string, phoneNumber: string): Observable<Company> {
@@ -42,6 +38,4 @@ export class QuestionService {
     console.log("Company Name: " + this.companyName);
     return this.http.post<null>(url, answers);
   }
-
-
 }

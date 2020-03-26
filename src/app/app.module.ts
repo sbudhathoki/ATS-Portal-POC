@@ -18,7 +18,7 @@ import {
           MatStepperModule, MatIconModule, MatButtonModule, 
           MatFormFieldModule, MatInputModule, MatListModule, 
           MatCardModule, MatSelectModule, MatRadioModule,
-          MatProgressBarModule, MatToolbarModule
+          MatProgressBarModule, MatToolbarModule, MatTooltipModule
         } from '@angular/material';    
 import { AcknowledgmentComponent } from './acknowledgment/acknowledgment.component';
 import { ResultComponent } from './result/result.component';
@@ -61,6 +61,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
     MatRadioModule,
     MatProgressBarModule,
     MatToolbarModule,
+    MatTooltipModule,
     FlexLayoutModule,
     NgxMaskModule.forRoot(options)
   ],

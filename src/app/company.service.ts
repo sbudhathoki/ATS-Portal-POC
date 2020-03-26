@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 })
 export class CompanyService {
   apiUrl = 'http://localhost:8080/api/company';
-  // companyName: string;
 
   constructor(private http: HttpClient) { }
 
@@ -16,6 +15,7 @@ export class CompanyService {
     firstName: string, lastName: string, title: string, 
     email: string, phoneNumber: string): Observable<Company> {
     const newProfile = new Company(companyName, industry, firstName, lastName, title, email, phoneNumber);
+    console.log(newProfile.firstName);
     const url = this.apiUrl;
     return this.http.post<Company>(url, newProfile);
   }

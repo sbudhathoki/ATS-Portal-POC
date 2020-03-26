@@ -45,7 +45,7 @@ export class ResultComponent implements OnInit {
 
     var link = document.createElement('a');
     link.href = data;
-    link.download = "ats.pdf";
+    link.download = "Agile_Transformation_Analysis_Report";
 
     link.click();
 

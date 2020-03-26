@@ -119,11 +119,12 @@ export class ProfileComponent implements OnInit {
     this.submitSub = this.companyService.createNewProfileOnServer(companyName, 
       industry, firstName, lastName, title, email, phoneNumber).subscribe(
       (response: Company) => {
+        console.log(response.firstName);
       console.log("profile: ", response);
     },
-      err => { console.log("error: " + err);
+      err => { console.log("error: " + err.message);
       });
-      this.router.navigate(['/question/1']);
+      this.router.navigate(['/question']);
     }
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators} from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Question } from '../question';
 
 @Component({
@@ -11,34 +11,72 @@ export class QuestionDetailComponent implements OnInit {
   @Input() question: Question;
   @Input() numberOfQuestions: number;
   @Output() answer = new EventEmitter<any>();
-  @Output() questionForm: FormGroup;
-  
-  validationMessage: "Please select an answer."
-  questions: Question[];
-  answers = [];
-  
+  @Input() questionForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.createForm();  
-  }
+  ngOnInit() {}
 
-  createForm(){
-    this.questionForm = this.fb.group({
-      answer: new FormControl(['', Validators.required])
-    });
-  }
-
-  record(answer) {
+  recordAnswer(answer) {
     this.answer.emit(answer);
   }
+}
 
-  // ngOnChanges(changes: SimpleChanges) {
-  //   if (changes.question && changes.question.currentValue && !changes.question.firstChange) {
-  //     this.questionForm.patchValue({answer: ''});
-  //     console.log(this.questionForm.value);
-  //   }
-  // }
 
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export class QuestionDetailComponent implements OnInit {
+//   @Input() question: Question;
+//   @Input() numberOfQuestions: number;
+//   @Output() answer = new EventEmitter<any>();
+//   @Output() questionForm: FormGroup;
+
+//   validationMessage: "Please select an answer."
+//   questions: Question[];
+//   answers = [];
+
+
+//   constructor(private fb: FormBuilder) { }
+
+//   ngOnInit() {
+//     this.createForm();  
+//   }
+
+//   createForm(){
+//     this.questionForm = this.fb.group({
+//       answer: ['', Validators.required]
+//     });
+//   }
+
+//   record(answer) {
+//     this.answer.emit(answer);
+//   }
+
+//   ngOnChanges(changes: SimpleChanges) {
+//     if (changes.question && changes.question.currentValue && !changes.question.firstChange) {
+//       this.questionForm.patchValue({answer: ''});
+//       console.log(this.questionForm.value);
+//     }
+//   }
+// }

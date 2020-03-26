@@ -1,21 +1,28 @@
-
 .mat-card-title {
-    text-align: right;
-    font-size: 18px;
+    text-align: left;
+    font-size: 20px;
     margin-bottom: 0;
-    padding: 5px;
-    color: #007DB3;
+    color: white;
+    overflow-wrap: break-word;
 }
 
 .mat-card-subtitle {
     font-size: 18px;
-    padding: 16px 0 5px;
-    margin: 0;
     text-align: left;
+    padding: 16px 0;
+    margin: 0;
+    color:#0194D3;
+    overflow-wrap: break-word;
+}
+
+::ng-deep .mat-radio-label-content {
+    font-size: 16px;
+    white-space: normal !important;
 }
 
 .mat-card-content {
     margin: 0 16px 16px;
+    overflow-wrap: break-word;
 }
 
 .mat-hint {
@@ -43,4 +50,9 @@
 
 ::ng-deep.mat-radio-outer-circle {
     border-color: white;
+}
+
+hr {
+    background-color: #F8971D ;
+    width: 90%;
 }

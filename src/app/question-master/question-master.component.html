@@ -1,42 +1,34 @@
-<div class="container" fxLayoutAlign="center" >
+<div class="container" fxLayout="column" fxLayoutAlign="space-around center" *ngIf="questions">
+   
+   <mat-card class="mat-card-instructions" *ngIf="questionToDisplay == questions[0]">
+      The following questionnaire consists of 24 multiple-choice questions. 
+      Read each question carefully and choose the answer that best applies to your organization as a whole. 
+      Only one answer is possible per question. Please allow 25–30 minutes to complete the questionnaire. 
+   </mat-card>
+   
+   <mat-card class="mat-card-questions">
+      <section class="progressBar">
+         <mat-progress-bar *ngIf="(progressValue >= 0 && progressValue <= 100) &&
+            questionToDisplay && index <= numberOfQuestions" [value]="progressValue">
+         </mat-progress-bar>
+         </section>
 
-   <mat-card>
-     <div *ngIf="question">
-       <section class="progressBar">
-       <mat-progress-bar *ngIf="(progressValue >= 0 && progressValue <= 100) &&
-          question && question.questionId <= numberOfQuestions" [value]="progressValue">
-       </mat-progress-bar>
-       </section>
-       <mat-card-header>
-          <mat-card-subtitle>Question {{question.questionId}} of {{numberOfQuestions}}</mat-card-subtitle>
-          <mat-card-title>{{question.question}}</mat-card-title>
-       </mat-card-header>
-       <hr>
-       <mat-card-content>
-           <app-question-detail
-             [question]="question"
-             [numberOfQuestions]="numberOfQuestions"
-             (answer)="answer($event)"
-             >
-           </app-question-detail>
-       </mat-card-content>
-
- <div>
-   <mat-card-actions>
-     <span *ngIf="question && question.questionId == numberOfQuestions">
-         <button mat-raised-button type="submit" (click)="onSubmit()" color="accent">Submit Answers</button>
-      </span>
-
-      <span *ngIf="question && question.questionId !== numberOfQuestions">
-         <button mat-raised-button type="button" (click)="nextQuestion()" color="accent">Next</button>
-      </span>
-
-      <span *ngIf="question && question.questionId !== 1">
-         <button mat-raised-button type="button" (click)="prevQuestion()" color="primary">Back</button>
-      </span>
-  </mat-card-actions>
- </div>
-     </div>
-</mat-card>
+   <form [formGroup]="questionForm">     
+      <app-question-detail 
+         [question]="questionToDisplay" 
+         [numberOfQuestions]="numberOfQuestions"
+         [questionForm]="questionForm"
+         (answer)="getAnswer($event)"
+         >
+      </app-question-detail>
+   </form>    
+      <mat-card-actions>
+         <span *ngIf="questionToDisplay && index == numberOfQuestions">
+            <button mat-raised-button type="submit" [disabled]="!questionForm.valid" (click)="submit()" color="accent">Submit Answers</button>
+         </span>
+         <span *ngIf="questionToDisplay && index !== numberOfQuestions">
+            <button mat-raised-button type="button" [disabled]="!questionForm.valid" (click)="nextQuestion()" color="accent">Next</button>
+         </span>
+      </mat-card-actions>
+   </mat-card>
 </div>
-

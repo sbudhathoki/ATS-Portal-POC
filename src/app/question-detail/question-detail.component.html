@@ -1,17 +1,17 @@
-<ng-content></ng-content>
-   
-<form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
-
-   <mat-card-content>   
+<div [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+   <mat-card-header>
+      <mat-card-subtitle>Question {{question.questionId}} of {{numberOfQuestions}}</mat-card-subtitle>
+      <mat-card-title>{{question.question}}</mat-card-title>
+   </mat-card-header>
+   <hr>
+   <mat-card-content>
       <mat-radio-group class="radio-group" formControlName="answer" name="answer" required>
-         <div *ngFor="let answer of question.answers; let i=index">
-            <mat-radio-button class="radio-button-answer" [value]="answer.answerId" 
-            (click)="record(answer)">
-                  {{ answer.answer }}
-            </mat-radio-button>
-            
-         </div>
-             
-      </mat-radio-group>
-   </mat-card-content>   
-</form>
+      <div *ngFor="let answer of question.answers">
+         <mat-radio-button class="radio-button-answer" [value]="answer.answerId" 
+            (click)="recordAnswer(answer)">
+               {{ answer.answer }}
+         </mat-radio-button>
+      </div>
+   </mat-radio-group>
+   </mat-card-content>
+</div>
