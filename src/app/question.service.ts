@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Question } from './question';
-import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -30,12 +30,10 @@ export class QuestionService {
       );
   }
 
-  postQAResponseToServer(company: string, answers: any[]): Observable<HttpResponse<null>> {
+  postQAResponseToServer(company: string, answers: any[]): Observable<null> {
     this.companyName = company;
     const url = `${this.apiUrl}/surveyanswers/${this.companyName}`;
-    return this.http.post<null>(url, answers, {
-      observe: "response"
-    })
+    return this.http.post<null>(url, answers)
     .pipe(
       catchError(this.handleError)
       );
