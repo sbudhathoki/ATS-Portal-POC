@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { Industry, Role } from './profile.interface';
 import { Subscription } from 'rxjs';
 import { Company } from '../company';
-import { QuestionService } from '../question.service';
 import { DataService } from '../data.service';
 
 @Component({
@@ -14,9 +13,10 @@ import { DataService } from '../data.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  company: Company;
   profileForm: FormGroup;
   submitSub: Subscription;
-  companyName: string = "";
+  name: string = "";
   currentCompany: string;
 
   industries: Industry[] = [
@@ -64,7 +64,6 @@ export class ProfileComponent implements OnInit {
   };
 
   constructor(private companyService: CompanyService,
-              private questionService: QuestionService,
               private dataService: DataService,
               private fb: FormBuilder, 
               private router: Router) {
@@ -72,8 +71,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-
-    this.dataService.currentCompany.subscribe(company => this.companyName = company);
+    this.dataService.currentCompany.subscribe(company => this.name = company);
   }
 
   ngOnDestroy() {
@@ -82,8 +80,8 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  //for sending company name to question master
-  newCompany() {
+  //for sharing company name with question master component
+  shareCompanyName() {
     this.currentCompany = this.profileForm.value.companyName;
     this.dataService.updateCompany(this.currentCompany);
   }
@@ -106,25 +104,33 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  onSubmit(): void {
-    if (this.profileForm.valid){
-    const companyName = this.profileForm.value.companyName;
-    const industry = this.profileForm.value.industry;
-    const firstName = this.profileForm.value.firstName;
-    const lastName = this.profileForm.value.lastName;
-    const title = this.profileForm.value.title;
-    const email = this.profileForm.value.email;
-    const phoneNumber = this.profileForm.value.phoneNumber;
+  mapValue(){
+    this.company = {
+        companyName: '',
+        industry: '',
+        firstName: '',
+        lastName: '',
+        title: '',
+        email: '',
+        phoneNumber: ''
+     }
+      this.company.companyName = this.profileForm.value.companyName;
+      this.company.industry = this.profileForm.value.industry;
+      this.company.firstName = this.profileForm.value.firstName;
+      this.company.lastName = this.profileForm.value.lastName;
+      this.company.title = this.profileForm.value.title;
+      this.company.email = this.profileForm.value.email;
+      this.company.phoneNumber = this.profileForm.value.phoneNumber;
+  }
 
-    this.submitSub = this.companyService.createNewProfileOnServer(companyName, 
-      industry, firstName, lastName, title, email, phoneNumber).subscribe(
-      (response: Company) => {
-        console.log(response.firstName);
-      console.log("profile: ", response);
-    },
-      err => { console.log("error: " + err.message);
-      });
-      this.router.navigate(['/question']);
+  onSubmit(): void {
+    if (this.profileForm.valid) {
+    this.mapValue();
+
+    this.submitSub = this.companyService.createNewProfileOnServer(this.company).subscribe(
+      () => this.router.navigate(['/question']),
+      err => console.log("error: " + err.message)
+      );
     }
   }
 }

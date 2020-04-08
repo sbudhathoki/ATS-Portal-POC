@@ -44,11 +44,9 @@ export class QuestionMasterComponent implements OnInit {
     this.questionSub = this.questionService.getQuestionsFromServer()
       .subscribe(
         (response: Question[]) => {
-          console.log("question list: ", response);
           this.questions = response;
           this.questionToDisplay = this.questions[0];
           this.numberOfQuestions = this.questions.length;
-          console.log("total questions: " + this.numberOfQuestions);
           this.progressValue = 100 * (this.currentQuestion + 1) / this.numberOfQuestions;
         },
         err => {
@@ -73,7 +71,6 @@ export class QuestionMasterComponent implements OnInit {
       var newAnswer = Object.assign({}, answer);
       this.answers.push(newAnswer);
       this.answers = Object.values(this.answers.reduce((acc,cur)=>Object.assign(acc,{[cur.questionId]:cur}),{}));
-      console.log("answers: ", this.answers);
   }
 
   nextQuestion(): void {
@@ -83,17 +80,15 @@ export class QuestionMasterComponent implements OnInit {
     this.questionForm.reset();
   }
   
-    increaseProgressValue() {
+  increaseProgressValue() {
     this.progressValue = 100 * this.index / this.numberOfQuestions;
   }
 
   submit() {
     this.submitSub = this.questionService.postQAResponseToServer(this.companyName, this.answers).subscribe(
-      (response: any) => {
-      console.log("response: ", response);
-    },
+      () => this.router.navigate(['/acknowledgment']),
       err => { console.log("error: " + err.message);
       });
-      this.router.navigate(['/acknowledgment']);
+      
   }
 }

@@ -5,11 +5,6 @@
     box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 
-.mat-card-content {
-    background-image: url(src\assets\sidepanel.png);
-    background-size: cover;
-}
-
 .mat-card-title {
     text-align: left;
     font-size: 20px;

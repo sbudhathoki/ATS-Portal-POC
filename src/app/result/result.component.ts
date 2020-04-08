@@ -25,7 +25,6 @@ export class ResultComponent implements OnInit {
       .subscribe(
         (response: any) => {
           this.html = response;
-          console.log (this.html);
         },
         err => { console.log("error: " + err.message);
         });
