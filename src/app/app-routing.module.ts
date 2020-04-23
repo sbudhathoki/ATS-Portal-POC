@@ -5,6 +5,7 @@ import { QuestionMasterComponent } from './question-master/question-master.compo
 import { ProfileComponent } from './profile/profile.component'
 import { AcknowledgmentComponent } from './acknowledgment/acknowledgment.component';
 import { ResultComponent } from './result/result.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: 'question', component: QuestionMasterComponent },
   { path: 'acknowledgment', component: AcknowledgmentComponent },
   { path: 'result', component: ResultComponent },
-  { path: '**', component: HomeComponent }
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

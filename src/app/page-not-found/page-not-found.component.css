@@ -1,0 +1,55 @@
+/* Large */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.mat-card {
+  margin-top: 3%;
+  flex-basis: 35%;
+  height: auto;
+  background-color: #00284d;
+    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1), 
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mat-card-image {
+  margin-bottom: 0;
+}
+
+.mat-card-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 48px;
+    margin-bottom: 0;
+    color: #F8971D ;
+}
+
+p {
+    text-align: center;
+    font-size: 16px;
+    padding: 0 0 5px;
+    margin: 0;
+    color: white;
+}
+
+a {
+  color: #0194D3;
+  text-decoration: underline;
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+  .mat-card {
+    flex-basis: 100%;
+  }
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+  .mat-card {
+    flex-basis: 100%;
+  }
+}

@@ -26,7 +26,7 @@ export class ResultComponent implements OnInit {
         (response: any) => {
           this.html = response;
         },
-        err => { console.log("error: " + err.message);
+        err => { console.log(err);
         });
   }
 
@@ -34,7 +34,6 @@ export class ResultComponent implements OnInit {
     this.resultService.getPdf()
     .subscribe(x => {
       var newBlob = new Blob([x], { type: 'application/pdf' });
-      
       if (window.navigator && window.navigator.msSaveOrOpenBlob) {
         window.navigator.msSaveOrOpenBlob(newBlob);
         return;
@@ -46,14 +45,8 @@ export class ResultComponent implements OnInit {
     link.href = data;
     link.download = "Agile_Transformation_Analysis_Report";
 
-    link.click();
-
     link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
-
-    setTimeout(function () {
-      window.URL.revokeObjectURL(data);
-      link.remove();
-    }, 100);
+    
     });
   }
 }

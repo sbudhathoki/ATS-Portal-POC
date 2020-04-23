@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Question } from './question';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,40 +15,17 @@ export class QuestionService {
 
   getQuestionsFromServer(): Observable<Question[]> {
     const url = this.apiUrl + "/questions";
-    return this.http.get<Question[]>(url)
-    .pipe(
-      catchError(this.handleError)
-      );
+    return this.http.get<Question[]>(url);
   }
   
   getQuestionByIdFromServer(id: number): Observable<Question> {
     const url =  `${this.apiUrl}/questions/${id}`;
-    return this.http.get<Question>(url)
-    .pipe(
-      catchError(this.handleError)
-      );
+    return this.http.get<Question>(url);
   }
 
   postQAResponseToServer(company: string, answers: any[]): Observable<null> {
     this.companyName = company;
     const url = `${this.apiUrl}/surveyanswers/${this.companyName}`;
-    return this.http.post<null>(url, answers)
-    .pipe(
-      catchError(this.handleError)
-      );
+    return this.http.post<null>(url, answers);
   }
-
-  private handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      // client-side or network error occurred
-      console.error('An error occurred:', error.error.message);
-    } else {
-      // backend returned an unsuccessful response code
-      console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error}`);
-    }
-    return throwError(
-      'An error occurred. Please try again later.');
-  };
 }

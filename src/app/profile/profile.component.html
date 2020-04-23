@@ -1,100 +1,104 @@
-<div class="container" fxLayoutAlign="center">
+<!-- <div class="container" fxLayoutAlign="center"> -->
 
+<div class="container">
   <mat-card>
     <form class="form-horizontal" [formGroup]="profileForm" (ngSubmit)="onSubmit()" novalidate>
       <mat-card-title>Create Profile</mat-card-title>
       <mat-card-subtitle>Company Information</mat-card-subtitle>
       <mat-card-content>
 
-        <mat-form-field appearance="outline" >
-          <mat-label>Company Name</mat-label>
-          <input matInput formControlName="companyName" name="companyName" type="text" required (blur)="shareCompanyName()">
-          <mat-error *ngFor="let validation of validationMessages.companyName">
-            <mat-error class="error-message"
+          <label for="companyName" class="label">Company Name</label>
+          <input class="input" formControlName="companyName" name="companyName" type="text" required (blur)="shareCompanyName()">
+          <span *ngFor="let validation of validationMessages.companyName">
+            <span class="error-message"
               *ngIf="profileForm.get('companyName').hasError(validation.type) && (profileForm.get('companyName').dirty || profileForm.get('companyName').touched)">
               {{validation.message}}
-            </mat-error>
-          </mat-error>
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="outline">
-          <mat-label>Industry</mat-label>
-          <mat-select formControlName="industry" required>
-            <mat-option *ngFor="let industry of industries" [value]="industry.value">
+           </span>
+          </span>
+
+          <label for="industry" class="label">Industry</label>
+          <select class="select" formControlName="industry" required>
+            <option *ngFor="let industry of industries" [value]="industry.value">
               {{industry.viewValue}}
-            </mat-option>
-          </mat-select>
-          <mat-error *ngFor="let validation of validationMessages.industry">
-            <mat-error class="error-message"
+            </option>
+          </select>
+          <span *ngFor="let validation of validationMessages.industry">
+            <span class="error-message"
               *ngIf="profileForm.get('industry').hasError(validation.type) && (profileForm.get('industry').dirty || profileForm.get('industry').touched)">
               {{validation.message}}
-            </mat-error>
-          </mat-error>
-        </mat-form-field>
-        <br>
-        <mat-divider [inset]="true"></mat-divider>
-        <br>
+          </span>
+        </span>
+
+        <!-- <mat-divider [inset]="true"></mat-divider> -->
+        <hr>
+      
         <mat-card-subtitle>Personal Information</mat-card-subtitle>
-        <mat-form-field appearance="outline">
-          <mat-label>First Name</mat-label>
-          <input matInput formControlName="firstName" type="text" required>
-          <mat-error *ngFor="let validation of validationMessages.firstName">
-            <mat-error class="error-message"
+       
+        <div class="flex-container">
+          <div>
+          <label for="firstName" class="label">First Name</label>
+          <input class="input" formControlName="firstName" type="text" required>
+          <span *ngFor="let validation of validationMessages.firstName">
+            <span class="error-message"
               *ngIf="profileForm.get('firstName').hasError(validation.type) && (profileForm.get('firstName').dirty || profileForm.get('firstName').touched)">
               {{validation.message}}
-            </mat-error>
-          </mat-error>
-        </mat-form-field>
+          </span>
+        </span>
+        </div>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Last Name</mat-label>
-          <input matInput formControlName="lastName" type="text" required>
-          <mat-error *ngFor="let validation of validationMessages.lastName">
-            <mat-error class="error-message"
+        <div>
+          <label for="lastName" class="label">Last Name</label>
+          <input class="input" formControlName="lastName" type="text" required>
+          <span *ngFor="let validation of validationMessages.lastName">
+            <span class="error-message"
               *ngIf="profileForm.get('lastName').hasError(validation.type) && (profileForm.get('lastName').dirty || profileForm.get('lastName').touched)">
               {{validation.message}}
-            </mat-error>
-          </mat-error>
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="outline">
-          <mat-label>Role</mat-label>
-          <mat-select formControlName="title" required>
-            <mat-option *ngFor="let role of roles" [value]="role.value">
+          </span>
+        </span>
+    </div>
+  </div>
+
+          <label for="title" class="label">Role</label>
+          <select class="select" formControlName="title" required>
+            <option *ngFor="let role of roles" [value]="role.value">
               {{role.viewValue}}
-            </mat-option>
-          </mat-select>
-          <mat-error *ngFor="let validation of validationMessages.title">
-            <mat-error class="error-message"
+            </option>
+          </select>
+          <span *ngFor="let validation of validationMessages.title">
+            <span class="error-message"
               *ngIf="profileForm.get('title').hasError(validation.type) && (profileForm.get('title').dirty || profileForm.get('title').touched)">
               {{validation.message}}
-            </mat-error>
-          </mat-error>
-        </mat-form-field>
-        <br>
+          </span>
+        </span>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Email Address</mat-label>
-          <input matInput formControlName="email" type="email" required>
-          <mat-error *ngFor="let validation of validationMessages.email">
-            <mat-error class="error-message"
+        <div class="flex-container">
+          <div>
+          <label for="email" class="label">Email Address</label>
+          <input class="input" formControlName="email" type="email" required>
+          <span *ngFor="let validation of validationMessages.email">
+            <span class="error-message"
               *ngIf="profileForm.get('email').hasError(validation.type) && (profileForm.get('email').dirty || profileForm.get('email').touched)">
               {{validation.message}}
-            </mat-error>
-          </mat-error>
-        </mat-form-field>
+          </span>
+        </span>
+        </div>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Phone Number</mat-label>
-          <input matInput formControlName="phoneNumber" type="tel" required mask="(000) 000-0000" prefix="+1"
+        <div>
+          <label for="phoneNumber" class="label">Phone Number</label>
+          <input class="input" formControlName="phoneNumber" type="tel" required mask="(000) 000-0000" prefix="+1"
             [showMaskTyped]="false">
-          <mat-error *ngFor="let validation of validationMessages.phoneNumber">
-            <mat-error class="error-message"
+          <span *ngFor="let validation of validationMessages.phoneNumber">
+            <span class="error-message"
               *ngIf="profileForm.get('phoneNumber').hasError(validation.type) && (profileForm.get('phoneNumber').dirty || profileForm.get('phoneNumber').touched)">
               {{validation.message}}
-            </mat-error>
-          </mat-error>
-        </mat-form-field>
+          </span>
+          <span class="error-message"
+              *ngIf="profileForm.get('phoneNumber').invalid && profileForm.get('phoneNumber').dirty">
+              Phone Number must be 10 digits.
+          </span>
+        </span>
+        </div>
+      </div>
 
       </mat-card-content>
       <mat-card-actions>

@@ -2,7 +2,8 @@
     margin-top: 50px;
     flex-basis: 35em;
     background-color: #00284d;
-    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1), 
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 
 .mat-card-title {

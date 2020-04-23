@@ -129,7 +129,7 @@ export class ProfileComponent implements OnInit {
 
     this.submitSub = this.companyService.createNewProfileOnServer(this.company).subscribe(
       () => this.router.navigate(['/question']),
-      err => console.log("error: " + err.message)
+      err => console.log(err)
       );
     }
   }

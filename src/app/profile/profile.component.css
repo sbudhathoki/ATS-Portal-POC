@@ -1,8 +1,22 @@
+/* Large */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .mat-card {
-    margin-top: 50px;
-    flex-basis: 35em;
+    margin-top: 3%;
+    flex-basis: 50%;
+    height: auto;
     background-color: #00284d;
-    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1), 
+        0px 1px 1px 0px rgba(0, 0, 0, 0.14), 
+        0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mat-card-content>:first-child, .mat-card>:first-child {
+    margin-top: 10px;
 }
 
 .mat-raised-button {
@@ -10,34 +24,139 @@
     text-transform: uppercase;
 } 
 
-.mat-form-field {
-    margin-left: 16px;
-}
-
 .mat-card-actions {
     padding: 10px;
     margin-bottom: 30px;
 }
 
 .mat-card-title {
-    font-size: 25px;
+    font-size: 28px;
     color:#0194D3;
 }
 
 .mat-card-subtitle {
-    color:white;
+    color:#F8971D;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
 }
 
-.mat-divider {
-    background-color: #F8971D ;
+.mat-card-subtitle:not(:first-child), .mat-card-title:not(:first-child) {
+    margin-top: 10px;
 }
 
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
-    background-color: white;
-    border-radius: 5px;
-    /* color: #C1D82F; */
-  }
+hr {
+    border-top: 2px solid #F8971D;
+    margin: 20px 0;
+    border-style: inset;
+}
 
-::ng-deep .mat-radio-outer-circle {
-    border-color: white;
+.label {
+    color: #ffffff;
+    margin: 10px 0 0;
+    font-size: 16px;
+    display: block;
+}
+
+.ng-valid[required], .ng-valid.required {
+    border: 2px solid #66BB6A;
+}
+.ng-dirty:not(form), .ng-touched:not(form) {
+    border: 2px solid #EF5350;
+}
+
+.error-message {
+    color: #EF5350;
+}
+
+.input, .select {
+  width: 100%;
+  padding: 10px;
+  margin: 3px 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.flex-container {
+    width: 100%;
+    display: flex;
+}
+
+.flex-container > div:first-child {
+    padding-right: 10px;
+    width: 100%;
+}
+
+.flex-container > div:last-child {
+    padding-left: 10px;
+    width: 100%;
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+    .mat-card {
+        flex-basis: 100%;
+    }
+
+    .mat-raised-button {
+        float: right;
+        text-transform: uppercase;
+        width: 100%;
+    } 
+
+    .mat-card-title {
+        font-size: 24px;
+    }
+
+    .flex-container {
+        /* width: 100%;
+        display: flex; */
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    
+.flex-container > div:first-child {
+        padding-right: 0;
+        width: 100%;
+    }
+    
+.flex-container > div:last-child {
+        padding-left: 0;
+        width: 100%;
+    }
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+    .mat-card {
+        flex-basis: 100%;
+    }
+
+.mat-raised-button {
+        float: right;
+        text-transform: uppercase;
+        width: 100%;
+    } 
+
+.mat-card-title {
+        font-size: 24px;
+    }
+
+.flex-container {
+        /* width: 100%;
+        display: flex; */
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    
+.flex-container > div:first-child {
+        padding-right: 0;
+        width: 100%;
+    }
+    
+.flex-container > div:last-child {
+        padding-left: 0;
+        width: 100%;
+    }
 }

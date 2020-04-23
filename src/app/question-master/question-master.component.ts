@@ -87,7 +87,7 @@ export class QuestionMasterComponent implements OnInit {
   submit() {
     this.submitSub = this.questionService.postQAResponseToServer(this.companyName, this.answers).subscribe(
       () => this.router.navigate(['/acknowledgment']),
-      err => { console.log("error: " + err.message);
+      err => { console.log(err);
       });
       
   }

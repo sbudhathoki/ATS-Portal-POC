@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
 import { QuestionMasterComponent } from './question-master/question-master.component';
 import { HeaderComponent } from './header/header.component';
@@ -18,7 +18,7 @@ import {
           MatStepperModule, MatIconModule, MatButtonModule, 
           MatFormFieldModule, MatInputModule, MatListModule, 
           MatCardModule, MatSelectModule, MatRadioModule,
-          MatProgressBarModule, MatToolbarModule, MatTooltipModule
+          MatProgressBarModule, MatToolbarModule, MatTooltipModule, MatDialogModule
         } from '@angular/material';    
 import { AcknowledgmentComponent } from './acknowledgment/acknowledgment.component';
 import { ResultComponent } from './result/result.component';
@@ -26,6 +26,8 @@ import { QuestionDetailComponent } from './question-detail/question-detail.compo
 import { FooterComponent } from './footer/footer.component';
 import { DataService } from './data.service';
 import { SafeHtmlPipe } from './safe-html.pipe';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HttpErrorInterceptor } from './http-error.interceptor';
 
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
@@ -41,7 +43,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
     AcknowledgmentComponent,
     ResultComponent,
     FooterComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -62,10 +65,17 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
     MatProgressBarModule,
     MatToolbarModule,
     MatTooltipModule,
+    MatDialogModule,
     FlexLayoutModule,
     NgxMaskModule.forRoot(options)
   ],
-  providers: [DataService],
+  providers: [
+    DataService, 
+    {provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true
+    }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
