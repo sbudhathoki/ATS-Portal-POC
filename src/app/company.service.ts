@@ -11,7 +11,7 @@ export class CompanyService {
 
   constructor(private http: HttpClient) { }
 
-  createNewProfileOnServer(company: Company): Observable<HttpResponse<Company>> {
-    return this.http.post<Company>(this.apiUrl, company, { observe: 'response' });
+  createNewProfileOnServer(company: Company): Observable<HttpResponse<any>> {
+    return this.http.post<Company>(this.apiUrl, company, {observe: 'response'});
   }
 }

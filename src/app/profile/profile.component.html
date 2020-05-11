@@ -1,5 +1,3 @@
-<!-- <div class="container" fxLayoutAlign="center"> -->
-
 <div class="container">
   <mat-card>
     <form class="form-horizontal" [formGroup]="profileForm" (ngSubmit)="onSubmit()" novalidate>
@@ -11,6 +9,10 @@
           <input class="input" formControlName="companyName" name="companyName" type="text" required (blur)="shareCompanyName()">
           <span *ngFor="let validation of validationMessages.companyName">
             <span class="error-message"
+              *ngIf="serverError">
+              This company name is already in use.
+           </span>
+           <span class="error-message"
               *ngIf="profileForm.get('companyName').hasError(validation.type) && (profileForm.get('companyName').dirty || profileForm.get('companyName').touched)">
               {{validation.message}}
            </span>
@@ -29,7 +31,6 @@
           </span>
         </span>
 
-        <!-- <mat-divider [inset]="true"></mat-divider> -->
         <hr>
       
         <mat-card-subtitle>Personal Information</mat-card-subtitle>

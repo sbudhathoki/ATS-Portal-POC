@@ -6,6 +6,7 @@ import { Industry, Role } from './profile.interface';
 import { Subscription } from 'rxjs';
 import { Company } from '../company';
 import { DataService } from '../data.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-profile',
@@ -18,6 +19,7 @@ export class ProfileComponent implements OnInit {
   submitSub: Subscription;
   name: string = "";
   currentCompany: string;
+  serverError: string;
 
   industries: Industry[] = [
     {value: "Financial Services", viewValue: 'Financial Services'},
@@ -129,8 +131,15 @@ export class ProfileComponent implements OnInit {
 
     this.submitSub = this.companyService.createNewProfileOnServer(this.company).subscribe(
       () => this.router.navigate(['/question']),
-      err => console.log(err)
-      );
+      (err) => {  
+        if (err instanceof HttpErrorResponse) {
+          if(err.status === 400){
+            this.serverError = err.error;
+          } else {
+            console.error(err)
+          }
+        } 
+      });
     }
   }
 }

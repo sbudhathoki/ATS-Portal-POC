@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { AppRoutingModule } from './app-routing.module';
+import { AdminRoutingModule } from './admin/admin/admin-routing.module'
+
+import { AdminModule } from './admin/admin/admin.module'
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -14,12 +18,9 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { FlexLayoutModule } from '@angular/flex-layout';
 //material.io imports
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { 
-          MatStepperModule, MatIconModule, MatButtonModule, 
-          MatFormFieldModule, MatInputModule, MatListModule, 
-          MatCardModule, MatSelectModule, MatRadioModule,
-          MatProgressBarModule, MatToolbarModule, MatTooltipModule, MatDialogModule
-        } from '@angular/material';    
+  
+//Angular Material
+import { MaterialModule } from 'src/app/material.module';
 import { AcknowledgmentComponent } from './acknowledgment/acknowledgment.component';
 import { ResultComponent } from './result/result.component';
 import { QuestionDetailComponent } from './question-detail/question-detail.component';
@@ -27,8 +28,8 @@ import { FooterComponent } from './footer/footer.component';
 import { DataService } from './data.service';
 import { SafeHtmlPipe } from './safe-html.pipe';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { HttpErrorInterceptor } from './http-error.interceptor';
-
+import { ErrorNotificationService } from './error-notification.service';
+import { InstructionDialogComponent } from './instruction-dialog/instruction-dialog.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
 
@@ -44,38 +45,32 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
     ResultComponent,
     FooterComponent,
     SafeHtmlPipe,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    InstructionDialogComponent,
   ],
   imports: [
     BrowserModule,
+    AdminModule,
+    AdminRoutingModule,
+    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatStepperModule,
-    MatIconModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatListModule,
-    MatCardModule,
-    MatSelectModule,
-    MatRadioModule,
-    MatProgressBarModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    MatDialogModule,
+    MaterialModule,
     FlexLayoutModule,
     NgxMaskModule.forRoot(options)
   ],
   providers: [
     DataService, 
     {provide: HTTP_INTERCEPTORS,
-      useClass: HttpErrorInterceptor,
+      useClass: ErrorNotificationService,
       multi: true
-    }
+    },
     ],
+    entryComponents: [
+      InstructionDialogComponent
+    ],  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

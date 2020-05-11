@@ -1,0 +1,105 @@
+<div class="container">
+    <div class="table-container">
+      <div class="div-1">
+        <h1>Records List</h1>
+      </div>
+    <div class="div-2">
+      <div class="search-div">
+    <label for="filter">Search</label>
+    <input class="input" (keyup)="applyFilter($event)" placeholder="e.g., enter a company name">
+    </div>
+  </div>
+
+    <div class="div-3">
+      <mat-table [dataSource]="dataSource" matSort [class.isMobile]="isMobile">
+
+        <!-- Company ID Column -->
+        <ng-container matColumnDef="companyId">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="mobile-label">ID</span>
+            {{row.companyId}}
+          </mat-cell>
+        </ng-container>
+    
+        <!-- Company Name Column -->
+        <ng-container matColumnDef="companyName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Company</mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="mobile-label">Company</span>
+            {{row.companyName}}
+          </mat-cell>
+        </ng-container>
+    
+        <!-- Last Name Column -->
+        <ng-container matColumnDef="lastName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="mobile-label">Last Name</span>
+            {{row.lastName}}
+          </mat-cell>
+        </ng-container>
+    
+        <!-- First Name Column -->
+        <ng-container matColumnDef="firstName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>First Name</mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <span class="mobile-label">First Name</span>
+              {{row.firstName}}
+            </mat-cell>
+          </ng-container>
+    
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="mobile-label">Email</span>
+            {{row.email}}
+          </mat-cell>
+        </ng-container>
+    
+        <!-- Phone Number Column -->
+        <ng-container matColumnDef="phoneNumber">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Phone Number</mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <span class="mobile-label">Phone Number</span>
+              {{row.phoneNumber | mask:'(000) 000-0000'}}</mat-cell>
+        </ng-container>
+
+         <!-- Report Type Column -->
+         <ng-container matColumnDef="reportType">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Report Type</mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <span class="mobile-label">Report Type</span>
+            {{row.companyHtmlPdfPath.reportType}}
+          </mat-cell>
+        </ng-container>
+        
+        <!-- Report Creation Date Column -->
+        <ng-container matColumnDef="reportCreationDate">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Create Date</mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <span class="mobile-label">Create Date</span>
+              {{row.companyHtmlPdfPath.reportCreationDate | date:'shortDate'}}
+            </mat-cell>
+          </ng-container> 
+          
+          <!-- Pdf Path Column -->
+          <ng-container matColumnDef="pdfPath">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>PDF</mat-header-cell>
+              <mat-cell *matCellDef="let row">
+                <span class="mobile-label">PDF</span>
+                <a href="{{row.companyHtmlPdfPath.pdfPath}}">
+                  Link</a>
+              </mat-cell>
+            </ng-container>  
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
+      </mat-table>
+    
+</div>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+</div>

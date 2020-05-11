@@ -17,11 +17,6 @@ export class QuestionService {
     const url = this.apiUrl + "/questions";
     return this.http.get<Question[]>(url);
   }
-  
-  getQuestionByIdFromServer(id: number): Observable<Question> {
-    const url =  `${this.apiUrl}/questions/${id}`;
-    return this.http.get<Question>(url);
-  }
 
   postQAResponseToServer(company: string, answers: any[]): Observable<null> {
     this.companyName = company;

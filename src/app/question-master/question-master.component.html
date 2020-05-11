@@ -1,11 +1,5 @@
 <div class="container" fxLayout="column" fxLayoutAlign="space-around center" *ngIf="questions">
    
-   <mat-card class="mat-card-instructions" *ngIf="questionToDisplay == questions[0]">
-      The following questionnaire consists of 24 multiple-choice questions. 
-      Read each question carefully and choose the answer that best applies to your organization as a whole. 
-      Only one answer is possible per question. Please allow 25–30 minutes to complete the questionnaire. 
-   </mat-card>
-   
    <mat-card class="mat-card-questions">
       <section class="progressBar">
          <mat-progress-bar *ngIf="(progressValue >= 0 && progressValue <= 100) &&

@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { QuestionService } from '../question.service';
 import { Question } from '../question';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogConfig} from '@angular/material';
+import { InstructionDialogComponent } from '../instruction-dialog/instruction-dialog.component';
 
 @Component({
   selector: 'app-question-master',
@@ -32,9 +34,16 @@ export class QuestionMasterComponent implements OnInit {
   constructor(private questionService: QuestionService,
               private dataService: DataService,
               private router: Router,
-              private fb: FormBuilder) { }
+              private fb: FormBuilder,
+              private dialog: MatDialog) { 
+
+               this.showDialog();  
+              }
+
+  @ViewChild(InstructionDialogComponent)
 
   ngOnInit() {
+   
     this.dataService.currentCompany.subscribe(company => this.companyName = company);
     this.getAllQuestions();
     this.buildForm();
@@ -49,8 +58,8 @@ export class QuestionMasterComponent implements OnInit {
           this.numberOfQuestions = this.questions.length;
           this.progressValue = 100 * (this.currentQuestion + 1) / this.numberOfQuestions;
         },
-        err => {
-          console.log("error: " + err)
+        error => {
+          console.error("error: " + error)
         });
   }
 
@@ -58,6 +67,14 @@ export class QuestionMasterComponent implements OnInit {
     if (this.questionSub) {
       this.questionSub.unsubscribe();
     }
+  }
+
+  showDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = false;
+    dialogConfig.width = "50%";
+    this.dialog.open(InstructionDialogComponent, dialogConfig);
   }
 
    buildForm() {

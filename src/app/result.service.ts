@@ -18,7 +18,7 @@ export class ResultService {
 
   getHTMLFromServer(company: string): Observable<any>{
     this.companyName = company;
-    const url = `${this.apiUrl}/surveyreport/${this.companyName}`
+    const url = `${this.apiUrl}/surveyreport/${this.companyName}`;
     return this.http.get(url, {responseType: 'text'});
   }
 }
