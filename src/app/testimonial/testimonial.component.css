@@ -1,0 +1,40 @@
+blockquote {
+  font-family: "Equip Lt", serif;
+    margin-bottom: 5px;
+    quotes: '\201C''\201D''\2018''\2019';
+  }
+
+blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+    font-family: serif;
+  }
+
+blockquote:after {
+    content: close-quote;
+    font-family: serif;
+    font-size: 1.1em;
+  }
+
+blockquote p {
+    display: inline;
+    font-size: 1.1em;
+  }
+
+.blockquote-footer {
+    text-align: right;
+    margin: 0 40px 32px;
+    font-size: 1.1em;
+}  
+
+strong {
+    color: #002e56;
+}
+
+cite {
+    color: #335878;
+}

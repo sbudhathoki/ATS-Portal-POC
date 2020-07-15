@@ -13,6 +13,8 @@ export class InstructionDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
+//This dialog opens upon initiating the question-master component. 
+//Users can click anywhere on the screen to close it.
   onClose(){
     this.dialog.close();
   }

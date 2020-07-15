@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    margin-top: 3%;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 0;
+    color: #007DB3;
+}
+
+h2 {
+    font-size: 1.25em;
+    padding: 16px 0 5px;
+    margin: 0;
+    color: #666666;
+}
+
+p {
+    font-size: 1.2em;
+    color: #666666;
+}

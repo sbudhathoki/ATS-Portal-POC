@@ -10,6 +10,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material';
 
+//This service handles global error responses and displays a snackbar alert with the error message.
 @Injectable()
 export class ErrorNotificationService implements HttpInterceptor{
 

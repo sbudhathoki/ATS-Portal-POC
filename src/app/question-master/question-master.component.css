@@ -1,72 +1,49 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3% 10%;
+  }
+
 .mat-card-questions {
-    margin-top: 3%;
     width: 75%;
     flex: 1 1 10em; 
-    background-color:#00284d;
-    color: white;
-    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 
-.mat-card-title {
-    text-align: left;
-    font-size: 20px;
-    margin-bottom: 0;
-    color: white;
+::ng-deep .mat-card:not([class*=mat-elevation-z]) {
+    -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
 }
 
-.mat-card-subtitle {
-    font-size: 18px;
-    padding: 16px 0 5px;
-    margin: 0;
-    color:#0194D3;
+.mat-raised-button {
+    text-transform: uppercase;
+    font-size: 1.2em;
+    padding: 3px 16px;
+    font-family: "Muller", sans-serif;
 }
 
-.mat-card-content {
-    margin: 0 16px 16px;
-}
-
-.mat-hint {
-    color: #f7931e;
-}
-
-.mat-raised-button.mat-button-base.mat-accent {
+#next-button, #submit-button {
     float: right;
-    text-transform: uppercase;
 }
 
-.mat-raised-button.mat-button-base.mat-primary {
+#previous-button {
     float: left;
-    text-transform: uppercase;
 }
-
-.radio-group {
-    display: flex;
-    flex-direction: column;
-    margin: 2px 0;
-  }
-  
-.radio-button {
-    margin: 2px;
-  }
-
-.mat-card-content {
-    font-size: 16px;
-}  
 
 .mat-card-actions {
-    padding: 10px;
+    padding-top: 25px;
     margin-bottom: 30px;
 }
 
-::ng-deep.mat-progress-bar-buffer {
-    background-color: #fbc481;
+::ng-deep .mat-progress-bar {
+    height: 20px !important;
 }
 
-::ng-deep.mat-progress-bar-fill::after {
-    background-color: #db7d07;
+::ng-deep .mat-progress-bar-buffer {
+    background-color: #002E56;
 }
 
-hr {
-    background-color: #F8971D ;
-    width: 100%;
+::ng-deep .mat-progress-bar-fill::after {
+    background-color: #F8971D;
 }

@@ -5,43 +5,42 @@
     align-items: center;
 }
 
-.mat-card {
-    margin-top: 3%;
-    flex-basis: 50%;
+.form {
+    width: 70%;
     height: auto;
-    background-color: #00284d;
-    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1), 
-        0px 1px 1px 0px rgba(0, 0, 0, 0.14), 
-        0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    margin-top: 2%;
 }
 
-.mat-card-content>:first-child, .mat-card>:first-child {
+.content>:first-child {
     margin-top: 10px;
 }
 
 .mat-raised-button {
-    float: right;
+    float: left;
     text-transform: uppercase;
+    margin-top: 8px;
 } 
 
-.mat-card-actions {
-    padding: 10px;
+.actions {
+    padding-top: 10px;
     margin-bottom: 30px;
 }
 
-.mat-card-title {
-    font-size: 28px;
+h1 {
+    font-size: 1.5em;
     color:#0194D3;
+    margin-top: 0;
+    font-family: "Equip", serif;
 }
 
-.mat-card-subtitle {
+h2 {
     color:#F8971D;
-    font-size: 16px;
+    font-size: 1.1em;
     text-transform: uppercase;
     margin-bottom: 2px;
 }
 
-.mat-card-subtitle:not(:first-child), .mat-card-title:not(:first-child) {
+h2:not(:first-child), h1:not(:first-child) {
     margin-top: 10px;
 }
 
@@ -52,9 +51,9 @@ hr {
 }
 
 .label {
-    color: #ffffff;
+    color: #002e56;
     margin: 10px 0 0;
-    font-size: 16px;
+    font-size: 1.1em;
     display: block;
 }
 
@@ -67,6 +66,7 @@ hr {
 
 .error-message {
     color: #EF5350;
+    font-size: 1em;
 }
 
 .input, .select {
@@ -76,6 +76,7 @@ hr {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
+  font-size: 1em;
 }
 
 .flex-container {
@@ -95,9 +96,6 @@ hr {
 
 /* Medium screens */
 @media all and (max-width: 800px) {
-    .mat-card {
-        flex-basis: 100%;
-    }
 
     .mat-raised-button {
         float: right;
@@ -105,7 +103,7 @@ hr {
         width: 100%;
     } 
 
-    .mat-card-title {
+    h1 {
         font-size: 24px;
     }
 
@@ -127,9 +125,6 @@ hr {
 
 /* Small screens */
 @media all and (max-width: 500px) {
-    .mat-card {
-        flex-basis: 100%;
-    }
 
 .mat-raised-button {
         float: right;
@@ -137,7 +132,7 @@ hr {
         width: 100%;
     } 
 
-.mat-card-title {
+h1 {
         font-size: 24px;
     }
 

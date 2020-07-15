@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ResultService } from '../result.service';
 import { DataService } from '../data.service';
 
+//This components displays the report results from the backend server in the innerHTML
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',

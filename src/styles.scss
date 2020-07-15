@@ -2,8 +2,32 @@
 /* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
 @import "tek-theme.scss";
 
+@font-face {
+    font-family: "Muller";
+    src: url("/assets/fonts/Muller/muller-regular-mt.woff2");
+  }
+
+@font-face {
+    font-family: "Muller Bl";
+    src: url("/assets/fonts/Muller/muller-bold-mt.woff2");
+  }
+
+@font-face {
+    font-family: "Muller ExBl";
+    src: url("/assets/fonts/Muller/muller-extrabold-mt.woff2");
+  }
+
+@font-face {
+    font-family: "Equip";
+    src: url("/assets/fonts/Equip/equip-slab-medium-mt.woff2");
+}
+
+@font-face {
+    font-family: "Equip Lt";
+    src: url("/assets/fonts/Equip/equip-slab-light-mt.woff2");
+}
+
 html, body { height: 100%; }
-/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
 
 body {
     margin: 0;

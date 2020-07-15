@@ -43,7 +43,6 @@ export class QuestionMasterComponent implements OnInit {
   @ViewChild(InstructionDialogComponent)
 
   ngOnInit() {
-   
     this.dataService.currentCompany.subscribe(company => this.companyName = company);
     this.getAllQuestions();
     this.buildForm();

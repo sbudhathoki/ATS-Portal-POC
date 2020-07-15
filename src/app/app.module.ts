@@ -18,9 +18,9 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { FlexLayoutModule } from '@angular/flex-layout';
 //material.io imports
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-  
 //Angular Material
 import { MaterialModule } from 'src/app/material.module';
+//components
 import { AcknowledgmentComponent } from './acknowledgment/acknowledgment.component';
 import { ResultComponent } from './result/result.component';
 import { QuestionDetailComponent } from './question-detail/question-detail.component';
@@ -30,6 +30,9 @@ import { SafeHtmlPipe } from './safe-html.pipe';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ErrorNotificationService } from './error-notification.service';
 import { InstructionDialogComponent } from './instruction-dialog/instruction-dialog.component';
+import { TestimonialComponent } from './testimonial/testimonial.component';
+import { ContactSalesComponent } from './contact-sales/contact-sales.component';
+import { ContactSupportComponent } from './contact-support/contact-support.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
 
@@ -47,6 +50,9 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
     SafeHtmlPipe,
     PageNotFoundComponent,
     InstructionDialogComponent,
+    TestimonialComponent,
+    ContactSalesComponent,
+    ContactSupportComponent,
   ],
   imports: [
     BrowserModule,

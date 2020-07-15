@@ -1,9 +1,9 @@
 <div class="container">
-  <mat-card>
+ <div class="form">
     <form class="form-horizontal" [formGroup]="profileForm" (ngSubmit)="onSubmit()" novalidate>
-      <mat-card-title>Create Profile</mat-card-title>
-      <mat-card-subtitle>Company Information</mat-card-subtitle>
-      <mat-card-content>
+      <h1>Create Profile</h1>
+      <h2>Company Information</h2>
+      <div class="content">
 
           <label for="companyName" class="label">Company Name</label>
           <input class="input" formControlName="companyName" name="companyName" type="text" required (blur)="shareCompanyName()">
@@ -33,7 +33,7 @@
 
         <hr>
       
-        <mat-card-subtitle>Personal Information</mat-card-subtitle>
+        <h2>Personal Information</h2>
        
         <div class="flex-container">
           <div>
@@ -101,10 +101,10 @@
         </div>
       </div>
 
-      </mat-card-content>
-      <mat-card-actions>
+    </div>
+      <div class="actions">
         <button mat-raised-button type="submit" color="accent" [disabled]="profileForm.invalid">Get Started</button>
-      </mat-card-actions>
+      </div>
     </form>
-  </mat-card>
+    </div>
 </div>

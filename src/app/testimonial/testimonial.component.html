@@ -1,0 +1,9 @@
+<div class="container" *ngFor="let q of quoteList">
+    <blockquote >
+        <p>{{ q.quote }}</p>
+    </blockquote>
+    <footer class="blockquote-footer">
+            &mdash; <strong>{{ q.speaker }}</strong>, 
+    <cite>{{ q.company }}</cite>
+</footer>  
+</div>

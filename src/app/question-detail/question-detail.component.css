@@ -1,28 +1,65 @@
+.mat-card-header {
+    display: flex;
+    flex-direction: row;
+    padding: 0 16px;
+    font-family: "Muller", sans-serif;
+}
+
+.number {
+    align-self: flex-start;
+    width: 50%;
+}
+
+.category {
+    font-size: 1.75em;
+    font-weight: 400;
+    padding: 32px 0;
+    color: #f7931e;
+    align-self: flex-end;
+    width: 50%;
+    text-align: right;
+    letter-spacing: 1px;
+}
+
 .mat-card-title {
     text-align: left;
-    font-size: 20px;
-    margin-bottom: 0;
-    color: white;
+    font-size: 2.2em;
+    margin: 16px 0;
     overflow-wrap: break-word;
+    color: #002E56;
+    font-family: "Equip", serif;
 }
 
 .mat-card-subtitle {
-    font-size: 18px;
+    font-size: 1.75em;
+    font-weight: 600;
     text-align: left;
-    padding: 16px 0;
+    padding: 32px 0;
     margin: 0;
-    color:#0194D3;
+    color: #666666;
     overflow-wrap: break-word;
 }
 
+::ng-deep .mat-card-header-text {
+    margin: 0;
+}
+
 ::ng-deep .mat-radio-label-content {
-    font-size: 16px;
+    font-size: 2em;
+    font-weight: 400;
+    color: #666666;
     white-space: normal !important;
+    font-family: "Muller", sans-serif
+}
+
+::ng-deep .mat-radio-label {
+    padding-bottom: 12px;
 }
 
 .mat-card-content {
     margin: 0 16px 16px;
     overflow-wrap: break-word;
+    font-family: "Muller", sans-serif;
 }
 
 .mat-hint {
@@ -43,16 +80,7 @@
     margin-bottom: 5px;
 }  
 
-.mat-card-actions {
-    padding: 10px;
-    margin-bottom: 30px;
-}
-
 ::ng-deep.mat-radio-outer-circle {
-    border-color: white;
-}
-
-hr {
-    background-color: #F8971D ;
-    width: 90%;
+    border-color: #666666;
+    height: 25px;
 }

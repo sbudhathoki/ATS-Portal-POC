@@ -10,9 +10,9 @@
   flex-basis: 35%;
   height: auto;
   background-color: #00284d;
-    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1), 
+    /* box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1), 
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 
-    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12); */
 }
 
 .mat-card-image {
@@ -22,17 +22,19 @@
 .mat-card-title {
     text-align: center;
     text-transform: uppercase;
-    font-size: 48px;
+    font-size: 4em;
     margin-bottom: 0;
-    color: #F8971D ;
+    color: #F8971D;
+    font-family: "Equip", serif;
 }
 
 p {
     text-align: center;
-    font-size: 16px;
+    font-size: 1.5em;
     padding: 0 0 5px;
     margin: 0;
     color: white;
+    font-family: "Muller", sans-serif;
 }
 
 a {

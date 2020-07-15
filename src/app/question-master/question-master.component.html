@@ -1,4 +1,4 @@
-<div class="container" fxLayout="column" fxLayoutAlign="space-around center" *ngIf="questions">
+<div class="container" *ngIf="questions">
    
    <mat-card class="mat-card-questions">
       <section class="progressBar">
@@ -18,10 +18,13 @@
    </form>    
    <mat-card-actions>
       <span *ngIf="questionToDisplay && index == numberOfQuestions">
-         <button mat-raised-button type="submit" [disabled]="!questionForm.valid" (click)="submit()" color="accent">Submit Answers</button>
+         <button mat-raised-button type="submit" id="submit-button" [disabled]="!questionForm.valid" (click)="submit()" color="accent">Submit Answers</button>
       </span>
       <span *ngIf="questionToDisplay && index !== numberOfQuestions">
-         <button mat-raised-button type="button" [disabled]="!questionForm.valid" (click)="nextQuestion()" color="accent">Next</button>
+         <button mat-raised-button type="button" id="next-button" [disabled]="!questionForm.valid" (click)="nextQuestion()" color="accent">Next</button>
+      </span>
+      <span *ngIf="questionToDisplay && index !== 1">
+         <button mat-raised-button type="button" id="previous-button" color="accent">Previous</button>
       </span>
    </mat-card-actions>
    </mat-card>

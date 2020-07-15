@@ -1,38 +1,44 @@
+<header>
+    <span><img id="logo" src="../assets/logo-tgs.svg" class="center" alt="the Teksystems logo"></span>
+</header>
+<div class="banner">
+    <span class="banner-text">{{ title }}</span>
+</div>
 <div class="container">
-    <mat-card>
-        <div class="row">
-        <div class="col1">
-            <!-- TITLE -->
-            <span><img id="logo" src="../assets/logo-white.png" class="center" alt="the Teksystems logo"></span>
-            <h1>Agile Transformation Services Self&#8209;Check</h1>
-
-            <p class="lead">Is your organization practicing Agile or transitioning toward being more Agile?</p>
+        <main>
+            <p><strong>Agile transformation requires vision, drive, and the right strategy.</strong>
+            But before starting any journey, you need to understand where you are, today.</p>
             
-            <p>The Agile Transformation Services’ 
-                self&#8209;check lets you see where you are based on your organization’s
+            <p>If your organization is practicing Agile or transitioning toward a more Agile environment,
+                our {{ title }} will track your progress based on your organization's
+            </p>
+            <ul><strong>
+                <li>Leadership mindset</li>
+                <li>Practices & behaviors</li>
+                <li>Culture</li>
+                <li>Systems & structures</li>
+                </strong>
+            </ul>
+            <p>Once you complete the assessment, you’ll receive a detailed report showing where you are on the road
+                to Agile transformation. Also included in this report will be:
             </p>
             <ul>
-                <li>Leadership Mindset</li>
-                <li>Culture</li>
-                <li>Practices and Competencies</li>
-                <li>Systems and Structures</li>
+                <li>Accurate descriptions of what Agile may look like in your team's environment based on your organization's
+                    stage of organization development
+                </li>
+                <li>Best practices for undertaking an Agile transformation</li>
+                <li>An achievable vision for advancing your Agile transformation</li>
             </ul>
-            <p>Once you finish, you’ll receive a report showing you where you are and what’s possible.
+            <p>The {{ title }} is 24 multiple-choice questions and takes about 25 to 30 minutes to complete.
             </p>
-
-            <p>The self&#8209;check is 24 multiple-choice questions and takes about 25 to 30 minutes to complete.
-            </p>
-            <hr>
-            <p>Click the button to begin.</p>
-            <!-- BUTTON -->
-            <button type="button" mat-raised-button color="accent" (click)="onClick()">Begin</button>
-        </div>
             
-            <!-- IMAGE TRIANGLE -->
-        <div class="col2">
-            <img id="pic1" src="../assets/background-home.png" alt="image of two intersecting triangles">    
-        </div>
-    </div>
-    </mat-card>
+            <button type="button" mat-raised-button color="accent" (click)="onClick()">Begin</button>
+        </main>
+        <aside>
+            <app-testimonial></app-testimonial>
+        </aside>
 </div>
+<footer>
+    <p id="footer-text">&copy; 2020 {{ name }}, Inc. ALL RIGHTS RESERVED.</p>
+</footer>
    

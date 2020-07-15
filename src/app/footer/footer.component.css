@@ -1,15 +1,42 @@
-.footer {
-    background-color: rgba(0, 0, 0, 0); 
+section {
+    text-align: right;
+    padding-right: 10%;
+}
+
+footer {
+    /* To make background color transparent */
+    /* background-color: rgba(0, 0, 0, 0);  */ 
+    display: flex;
+    background-color: #002e56;
+    height: 75px;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
-    padding: 20px;
+    padding: 20px 0;
+    background-color: #002e56;
+    width: 80%
 }
 
 #footer-text {
     color: #ffffff;
-    text-align: center;
-    font-weight: lighter;
-    font-size: 14px;
+    text-align: right;
+    font-weight: 300;
+    font-size: 1em;
     margin: 0;
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+    #footer-text {
+        text-align: center;
+    }
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+    #footer-text {
+        text-align: center;
+    }
 }

@@ -4,6 +4,6 @@
 }
 
 .mat-raised-button.mat-button-base.mat-accent {
-    float: right;
+    float: left;
     text-transform: uppercase;
 }

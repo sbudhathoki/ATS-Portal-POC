@@ -1,21 +1,25 @@
-::ng-deep .mat-dialog-container {
-    background: rgb(164,215,244);
-    background: linear-gradient(0deg, rgba(164,215,244,1) 0%, rgba(182,223,246,1) 50%, rgba(200,231,248,1) 100%);
-    box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-    color:#00284d;
-}
-
 h1 {
-    font-size: 18px;
-    margin-bottom: 0px;
+    font-size: 1.5em;
+    margin-bottom: 0;
+    color:#0194D3;
+    font-family: "Muller", sans-serif
 }
 
 p {
-    margin-bottom: 0px;
+    margin: 10px 0 0;
+    font-size: 1.3em;
+    line-height: 1.5;
+    color: #666666;
 }
 
 .mat-dialog-actions {
     margin-bottom: 0;
     padding-bottom: 0;
     float: right;
+}
+
+.mat-raised-button {
+    font-size: 1.3em;
+    padding: 5px 25px;
+    font-family: "Muller", sans-serif;
 }

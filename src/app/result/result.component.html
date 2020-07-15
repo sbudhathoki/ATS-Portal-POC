@@ -1,17 +1,18 @@
+<!-- Results are retrieved from backend server and are displayed in innerHTML. This page styling relies on Angular Flex Layout. -->
 <div fxLayout="row" style="margin-top:20px;">
     <mat-spinner [diameter]="50" *ngIf="showSpinner"></mat-spinner>
-    <div fxFlex="10"></div>
-    <div fxFlex="80">
+    <div fxFlex="15"></div>
+    <div fxFlex="70">
         <button mat-raised-button type="button" 
         (click)="showPdf()" color="accent">Export to PDF</button>
     </div>
-    <div fxFlex="10"></div>
+    <div fxFlex="15"></div>
 </div>
 
 <div fxLayout="row" style="margin-top:20px;">
-    <div fxFlex="10"></div>
-    <div fxFlex="80" style="background-color:#ffffff;">
+    <div fxFlex="15"></div>
+    <div fxFlex="70" style="background-color:#ffffff;">
         <div class="html" [innerHTML]="html | safeHtml"></div>
     </div>
-    <div fxFlex="10">
+    <div fxFlex="15">
 </div>

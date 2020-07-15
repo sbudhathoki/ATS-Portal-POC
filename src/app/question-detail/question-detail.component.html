@@ -1,10 +1,18 @@
 <div [formGroup]="questionForm">
    <mat-card-header>
-      <mat-card-subtitle>Question {{question.questionId}} of {{numberOfQuestions}}</mat-card-subtitle>
-      <mat-card-title>{{question.question}}</mat-card-title>
+      <div class="number">
+         <mat-card-subtitle>Question {{question.questionId}} of {{numberOfQuestions}}</mat-card-subtitle>
+      </div>
+      <div [ngSwitch]="question.categoryCode" class="category">
+         <span *ngSwitchCase="'I'">Leadership Mindset</span>
+         <span *ngSwitchCase="'IT'">Practices & Behaviors</span>
+         <span *ngSwitchCase="'WE'">Culture</span>
+         <span *ngSwitchCase="'ITS'">Systems & Structures</span>
+      </div>
    </mat-card-header>
-   <hr>
    <mat-card-content>
+      <mat-card-title>{{question.question}}</mat-card-title>
+    
       <mat-radio-group class="radio-group" formControlName="answer" name="answer" required>
       <div *ngFor="let answer of question.answers">
          <mat-radio-button class="radio-button-answer" [value]="answer.answerId" 

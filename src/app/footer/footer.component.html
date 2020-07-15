@@ -1,5 +1,9 @@
+<section *ngIf="hasRoute('support')"></section>
+<section *ngIf="!hasRoute('support')">
+    <p>Contact <a routerLink="/support">Technical Support</a>.</p>
+</section>
 <footer>
     <div class="container">
-        <h5 id="footer-text">&copy; 2020 TEKsystems, Inc. ALL RIGHTS RESERVED.</h5>
+        <p id="footer-text">&copy; 2020 {{ name }}, Inc. ALL RIGHTS RESERVED.</p>
     </div>
 </footer>
