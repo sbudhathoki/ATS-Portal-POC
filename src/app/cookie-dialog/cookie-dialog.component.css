@@ -1,0 +1,25 @@
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 0;
+    color:#0194D3;
+    font-family: "Muller", sans-serif
+}
+
+p {
+    margin: 10px 0 0;
+    font-size: 1.3em;
+    line-height: 1.5;
+    color: #666666;
+}
+
+.mat-dialog-actions {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    float: right;
+}
+
+.mat-raised-button {
+    font-size: 1.3em;
+    padding: 5px 25px;
+    font-family: "Muller", sans-serif;
+}

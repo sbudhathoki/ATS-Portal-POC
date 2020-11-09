@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
   name: string = "";
   currentCompany: string;
   serverError: string;
+ 
 
   industries: Industry[] = [
     {value: "Financial Services", viewValue: 'Financial Services'},
@@ -62,7 +63,11 @@ export class ProfileComponent implements OnInit {
     ],
     'phoneNumber': [
       { type: 'required', message: 'Phone Number is required.' }
+    ],
+    'terms' : [
+      {type: 'required', message: 'Please accept the terms and conditions'}
     ]
+    
   };
 
   constructor(private companyService: CompanyService,
@@ -102,7 +107,9 @@ export class ProfileComponent implements OnInit {
       email: new FormControl('', Validators.compose([
         Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$"),
         Validators.required])),
-      phoneNumber: new FormControl('', Validators.required)
+      phoneNumber: new FormControl('', Validators.required),
+      terms: new FormControl('', Validators.requiredTrue)
+     
     });
   }
 

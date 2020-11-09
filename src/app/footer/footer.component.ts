@@ -14,10 +14,13 @@ export class FooterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+   
   }
 
   hasRoute(route: string) {
     return this.router.url.includes(route);
   }
+
+ 
 
 }

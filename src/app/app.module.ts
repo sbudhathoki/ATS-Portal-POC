@@ -33,8 +33,11 @@ import { InstructionDialogComponent } from './instruction-dialog/instruction-dia
 import { TestimonialComponent } from './testimonial/testimonial.component';
 import { ContactSalesComponent } from './contact-sales/contact-sales.component';
 import { ContactSupportComponent } from './contact-support/contact-support.component';
+import { CookieDialogComponent } from './cookie-dialog/cookie-dialog.component';
+
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
+
 
 @NgModule({
   declarations: [
@@ -53,6 +56,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
     TestimonialComponent,
     ContactSalesComponent,
     ContactSupportComponent,
+    CookieDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +69,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    NgxMaskModule.forRoot(options)
+    NgxMaskModule.forRoot(options),
+
   ],
   providers: [
     DataService, 
