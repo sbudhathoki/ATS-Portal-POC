@@ -32,7 +32,7 @@
 }
 
 .mat-card-actions {
-    padding-top: 25px;
+    padding: 25px 9px 0;
     margin-bottom: 30px;
 }
 
@@ -46,4 +46,33 @@
 
 ::ng-deep .mat-progress-bar-fill::after {
     background-color: #F8971D;
+}
+
+/* Medium screens */
+@media all and (max-width: 1300px) {
+    .container {
+        padding: 1% 10%;
+      }
+
+    ::ng-deep .mat-progress-bar {
+        height: 10px !important;
+    }
+
+    .mat-raised-button {
+        font-size: 1em;
+        padding: 3px 10px;
+    }
+
+    .mat-card-actions {
+        padding-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    .mat-raised-button {
+        text-transform: uppercase;
+        font-size: 1em;
+        padding: 3px 10px;
+        font-family: "Muller", sans-serif;
+    }
+
 }

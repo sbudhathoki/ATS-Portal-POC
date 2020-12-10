@@ -1,4 +1,4 @@
-/* Large */
+/* Largest screens */
 header {
     border-bottom: 1px solid #002e56;
 }
@@ -33,6 +33,16 @@ margin: 0;
     letter-spacing: 1px;
 }
 
+/* Large screens */
+@media all and (max-width: 1300px) {
+    .container {
+        height: 100px;
+    }
+
+    #col-2 {
+        font-size: 1.25em;
+    }
+}
 
 /* Medium screens */
 @media all and (max-width: 800px) {

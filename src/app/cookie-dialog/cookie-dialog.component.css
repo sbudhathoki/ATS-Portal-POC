@@ -23,3 +23,19 @@ p {
     padding: 5px 25px;
     font-family: "Muller", sans-serif;
 }
+
+/* Medium screens */
+@media all and (max-width: 1300px) {
+    h1 {
+        font-size: 1.2em;
+    }
+    
+    p {
+        font-size: 1em;
+    }
+
+    .mat-raised-button {
+        font-size: 1em;
+        padding: 5px 16px;
+    }
+}

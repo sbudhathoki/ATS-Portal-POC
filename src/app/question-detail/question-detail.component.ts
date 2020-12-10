@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { Question } from '../question';
 
 @Component({
@@ -11,18 +10,16 @@ export class QuestionDetailComponent implements OnInit {
   @Input() question: Question;
   @Input() numberOfQuestions: number;
   @Output() answer = new EventEmitter<any>();
-  @Input() questionForm: FormGroup;
-
+  
   constructor() { }
 
   ngOnInit() {}
 
   recordAnswer(answer) {
+    this.question.selectedAnswer = answer.answerId;
     this.answer.emit(answer);
   }
 }
-
-
 
 
 

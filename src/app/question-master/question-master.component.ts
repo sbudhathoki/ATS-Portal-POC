@@ -4,7 +4,6 @@ import { Question } from '../question';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogConfig} from '@angular/material';
 import { InstructionDialogComponent } from '../instruction-dialog/instruction-dialog.component';
 
@@ -16,7 +15,6 @@ import { InstructionDialogComponent } from '../instruction-dialog/instruction-di
 export class QuestionMasterComponent implements OnInit {
   questions: Question[];
   questionToDisplay: Question;
-  questionForm: FormGroup;
 
   answers = [];
   numberOfQuestions: number;
@@ -30,13 +28,12 @@ export class QuestionMasterComponent implements OnInit {
   //Progress bar
   progressValue = 0;
   currentQuestion = 0;
+  selectedAnswer: number;
 
   constructor(private questionService: QuestionService,
               private dataService: DataService,
               private router: Router,
-              private fb: FormBuilder,
               private dialog: MatDialog) { 
-
                this.showDialog();  
               }
 
@@ -45,7 +42,6 @@ export class QuestionMasterComponent implements OnInit {
   ngOnInit() {
     this.dataService.currentCompany.subscribe(company => this.companyName = company);
     this.getAllQuestions();
-    this.buildForm();
   }
 
   getAllQuestions() {
@@ -76,14 +72,11 @@ export class QuestionMasterComponent implements OnInit {
     this.dialog.open(InstructionDialogComponent, dialogConfig);
   }
 
-   buildForm() {
-    this.questionForm = this.fb.group({
-      answer: ['', Validators.required]
-    });
-  }
-
   getAnswer(answer) {
-      answer = { questionId: this.questionToDisplay.questionId, answerId: answer.answerId }
+      answer = { 
+        questionId: this.questionToDisplay.questionId, 
+        answerId: answer.answerId
+      }
       var newAnswer = Object.assign({}, answer);
       this.answers.push(newAnswer);
       this.answers = Object.values(this.answers.reduce((acc,cur)=>Object.assign(acc,{[cur.questionId]:cur}),{}));
@@ -93,7 +86,13 @@ export class QuestionMasterComponent implements OnInit {
     this.questionToDisplay = this.questions[this.index];
     this.index++;
     this.increaseProgressValue();
-    this.questionForm.reset();
+  }
+
+  previousQuestion(): void {
+    if (this.index > 1){
+      this.index--;
+      this.questionToDisplay = this.questions[this.index - 1];
+    };
   }
   
   increaseProgressValue() {

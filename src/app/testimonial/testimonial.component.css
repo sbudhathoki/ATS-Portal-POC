@@ -38,3 +38,25 @@ strong {
 cite {
     color: #335878;
 }
+
+/* Large screens */
+@media all and (max-width: 1300px) {
+  blockquote:before {
+    font-size: 3em;
+    line-height: 0.1em;
+    margin-right: 0.2em;
+    vertical-align: -0.4em;
+  }
+  
+  blockquote:after {
+    font-size: 0.9em;
+  }
+
+blockquote p {
+    font-size: 0.9em;
+  }
+
+.blockquote-footer {
+    font-size: 0.9em;
+}  
+}

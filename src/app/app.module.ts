@@ -31,7 +31,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ErrorNotificationService } from './error-notification.service';
 import { InstructionDialogComponent } from './instruction-dialog/instruction-dialog.component';
 import { TestimonialComponent } from './testimonial/testimonial.component';
-import { ContactSalesComponent } from './contact-sales/contact-sales.component';
 import { ContactSupportComponent } from './contact-support/contact-support.component';
 import { CookieDialogComponent } from './cookie-dialog/cookie-dialog.component';
 
@@ -54,7 +53,6 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
     PageNotFoundComponent,
     InstructionDialogComponent,
     TestimonialComponent,
-    ContactSalesComponent,
     ContactSupportComponent,
     CookieDialogComponent
   ],

@@ -5,4 +5,5 @@ export class Question {
     question: string;
     categoryCode: string;
     answers: Answer[];
+    selectedAnswer: number;
 }

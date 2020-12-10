@@ -1,4 +1,4 @@
-/* Large */
+/* Largest screens */
 header {
     display: flex;
     justify-content: left;
@@ -85,12 +85,41 @@ footer {
     margin: 0;
 }
 
-/* Medium screens */
-@media all and (max-width: 800px) {
-    .mat-card {
-        flex-basis: 100%;
+/* Large screens */
+@media all and (max-width: 1300px) {
+    header {
+        height: 75px;
     }
 
+    .container {
+        padding: 1.25% 3%;
+      }
+
+    .banner {
+        height: 75px;
+    }
+
+    .banner-text {
+        color: #ffffff;
+        font-size: 20px;
+    }
+    
+    p, ul {
+        font-size: 1em;
+    }
+
+    footer {
+        height: 50px;
+        padding-right: 35px;
+    }
+
+    #footer-text {
+        font-size: 0.75em;
+    }
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
     .banner {
         height: 60px;
     }
@@ -103,15 +132,10 @@ footer {
     main {
         width: 100%;
     }
-
 }
 
 /* Small screens */
 @media all and (max-width: 500px) {
-    .mat-card {
-        flex-basis: 100%;
-    }
-
     .banner {
         height: 60px;
     }

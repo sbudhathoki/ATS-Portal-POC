@@ -17,12 +17,29 @@ export class ErrorNotificationService implements HttpInterceptor{
   constructor(private snackBar: MatSnackBar) { }
 
   private handleError(error: HttpErrorResponse) {
+    var errorMessage = "";
     if (error.error instanceof ErrorEvent) {
-      console.error(`Client Side Error: ${error.error.message}`);
+      errorMessage = `${error.error.message}`;
+      console.error("Client Side Error: " + errorMessage);
     } else {
-      console.error(`Server Side Error: ${JSON.stringify(error.error)}`)
+      var serverError = `${JSON.stringify(error.error)}`
+      if (serverError.includes("timestamp")) {
+        errorMessage = "Error generating report as company profile not found"
+        console.error("Server Side Error: " + errorMessage);
+      } 
+      else if (serverError.includes("isTrusted")) {
+        errorMessage = "Server is not responding"
+        console.error("Server Side Error: " + errorMessage);
+      } 
+      else if (serverError.includes("{}")) {
+        errorMessage = "Error generating PDF report"
+        console.error("Server Side Error: " + errorMessage);
+      } else {
+        errorMessage = serverError.replace(/^"|"$/g, '');
+        console.error("Server Side Error: " + errorMessage);
+      }
     }
-	  this.snackBar.open(JSON.stringify(error.error), 'Close');
+	  this.snackBar.open((errorMessage), 'Close');
     return throwError(
       error);
   }

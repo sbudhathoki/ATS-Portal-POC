@@ -12,7 +12,6 @@
 
 .mat-card {
     padding-top: 3%;
-    font-family: "Muller", sans-serif;
 }
 
 .mat-card-title {
@@ -20,12 +19,15 @@
     font-size: 2em;
     margin-bottom: 0;
     color: #007DB3;
+    font-family: "Equip", serif;
 }
 
 .mat-card-subtitle {
     font-size: 1.2em;
+    font-weight: 400;
     padding: 16px 0 5px;
     margin: 0;
+    font-family: "Muller", sans-serif;
 }
 
 .mat-raised-button.mat-button-base.mat-accent {
@@ -33,4 +35,19 @@
     text-transform: uppercase;
     margin: 15px 0 0 15px;
     font-family: "Muller", sans-serif;
+}
+
+/* Medium screens */
+@media all and (max-width: 1300px) {
+    .mat-card-title {
+        font-size: 1.5em;
+    }
+    
+    .mat-card-subtitle {
+        font-size: 1em;
+    }
+
+    .mat-raised-button {
+        font-size: 1em;
+    }
 }

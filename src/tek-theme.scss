@@ -73,7 +73,7 @@ $tek-theme-accent:  mat-palette($tek-accent, 500);
 $tek-theme-background: #ffffff;
 // $tek-theme-background: map_get($tek-primary, 50);
  
-$tek-theme-warn:    mat-palette($mat-red);
+$tek-theme-warn:    mat-palette($mat-red, A700);
  
 $tek-theme: mat-light-theme($tek-theme-primary, $tek-theme-accent, $tek-theme-warn);
  

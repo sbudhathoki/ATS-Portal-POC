@@ -27,10 +27,27 @@ footer {
     margin: 0;
 }
 
+/* Large screens */
+@media all and (max-width: 1300px) {
+    footer {
+        height: 50px;
+    }
+
+    .container {
+        padding: 10px 0;
+    }
+    
+    #footer-text {
+        font-size: 0.9em;
+    }
+
+}
+
 /* Medium screens */
 @media all and (max-width: 800px) {
     #footer-text {
         text-align: center;
+        font-size: 0.75em;
     }
 }
 
@@ -38,5 +55,6 @@ footer {
 @media all and (max-width: 500px) {
     #footer-text {
         text-align: center;
+        font-size: 0.75em;
     }
 }

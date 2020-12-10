@@ -1,5 +1,4 @@
-<div class="container" *ngIf="questions">
-   
+<div class="container" *ngIf="questions"> 
    <mat-card class="mat-card-questions">
       <section class="progressBar">
          <mat-progress-bar *ngIf="(progressValue >= 0 && progressValue <= 100) &&
@@ -7,24 +6,24 @@
          </mat-progress-bar>
          </section>
 
-   <form [formGroup]="questionForm">     
       <app-question-detail 
          [question]="questionToDisplay" 
          [numberOfQuestions]="numberOfQuestions"
-         [questionForm]="questionForm"
          (answer)="getAnswer($event)"
          >
       </app-question-detail>
-   </form>    
+
    <mat-card-actions>
       <span *ngIf="questionToDisplay && index == numberOfQuestions">
-         <button mat-raised-button type="submit" id="submit-button" [disabled]="!questionForm.valid" (click)="submit()" color="accent">Submit Answers</button>
+         <button mat-raised-button type="submit" id="submit-button" [disabled]="questionToDisplay.selectedAnswer == null"
+            (click)="submit()" color="accent">Submit Answers</button>
       </span>
       <span *ngIf="questionToDisplay && index !== numberOfQuestions">
-         <button mat-raised-button type="button" id="next-button" [disabled]="!questionForm.valid" (click)="nextQuestion()" color="accent">Next</button>
+         <button mat-raised-button type="button" id="next-button" [disabled]="questionToDisplay.selectedAnswer == null" 
+            (click)="nextQuestion()" color="accent">Next</button>
       </span>
       <span *ngIf="questionToDisplay && index !== 1">
-         <button mat-raised-button type="button" id="previous-button" color="accent" disabled>Previous</button>
+         <button mat-raised-button type="button" id="previous-button" (click)="previousQuestion()" color="accent">Previous</button>
       </span>
    </mat-card-actions>
    </mat-card>

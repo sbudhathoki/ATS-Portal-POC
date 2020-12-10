@@ -1,7 +1,7 @@
 .mat-card-header {
     display: flex;
     flex-direction: row;
-    padding: 0 16px;
+    padding: 0;
     font-family: "Muller", sans-serif;
 }
 
@@ -57,7 +57,7 @@
 }
 
 .mat-card-content {
-    margin: 0 16px 16px;
+    margin: 0 0 16px;
     overflow-wrap: break-word;
     font-family: "Muller", sans-serif;
 }
@@ -83,4 +83,38 @@
 ::ng-deep.mat-radio-outer-circle {
     border-color: #666666;
     height: 25px;
+}
+
+/* Medium screens */
+@media all and (max-width: 1300px) {
+    .category {
+        font-size: 1.25em;
+        padding: 10px 0;
+    }
+
+    .mat-card-title {
+        font-size: 1.5em;
+        margin: 5px 0;
+    }
+    
+    .mat-card-subtitle {
+        font-size: 1.25em;
+        padding: 10px 0;
+    }
+
+    ::ng-deep .mat-radio-label-content {
+        font-size: 1.3em;
+    }
+    
+    ::ng-deep .mat-radio-label {
+        padding-bottom: 7px;
+    }
+    
+    .mat-card-content {
+        margin: 0 0 7px;
+    }
+
+    .radio-button-answer {
+        margin-bottom: 2px;
+    } 
 }

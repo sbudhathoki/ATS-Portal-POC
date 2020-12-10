@@ -1,5 +1,4 @@
-<div [formGroup]="questionForm">
-   <mat-card-header>
+<mat-card-header>
       <div class="number">
          <mat-card-subtitle>Question {{question.questionId}} of {{numberOfQuestions}}</mat-card-subtitle>
       </div>
@@ -9,17 +8,16 @@
          <span *ngSwitchCase="'WE'">Culture</span>
          <span *ngSwitchCase="'ITS'">Systems & Structures</span>
       </div>
-   </mat-card-header>
+</mat-card-header>
    <mat-card-content>
       <mat-card-title>{{question.question}}</mat-card-title>
-    
-      <mat-radio-group class="radio-group" formControlName="answer" name="answer" required>
+      <mat-radio-group class="radio-group" name="answer">
       <div *ngFor="let answer of question.answers">
-         <mat-radio-button class="radio-button-answer" [value]="answer.answerId" 
+         <mat-radio-button class="radio-button-answer" [value]="answer.answerId"
+            [checked]="question.selectedAnswer == answer.answerId"
             (click)="recordAnswer(answer)">
                {{ answer.answer }}
          </mat-radio-button>
       </div>
    </mat-radio-group>
    </mat-card-content>
-</div>
